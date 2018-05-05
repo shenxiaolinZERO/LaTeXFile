@@ -1,6 +1,9 @@
 
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath}
 
 \title{ExplicitAndImplicitFeedback}
 \author{Xiaolin Shen}
@@ -17,7 +20,7 @@
 
 \subsection{M-step}
 
-the updates of the parameters\quad \{u,v,\theta \} \quad as  follow:\\
+the updates of the parameters $\quad \{u,v,\theta \} \quad$ as  follow:\\
 
 \begin{equation}\label{equ:u}
 u_k =\frac{\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)}{\Sigma_{s=1}^K \Sigma_{u(d)=u}\gamma(d,s,\Theta^t)}
@@ -32,61 +35,99 @@ u_k =\frac{\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)}{\Sigma_{s=1}^K \Sigma_{u(d)=u}\g
 p(g|d,\Theta^{t}) & \propto   p(g|u,\Theta^{t}) p(d|g,\Theta^{t}) \\ \nonumber
  p(g_k=1|d,\Theta^{t}) & \propto  u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
 \end{eqnarray}
-then simply add an S-step after the E-step,the value of $g$ for each session $d$ is
+
+First, let's use $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
+
+\begin{align}\label{equ:conditional}
+\gamma(d,k,\Theta^t) &=\frac{p(d,g|\Theta^t)}{\Sigma_g p(d,g|\Theta^t)} = \frac{p(g|\Theta^t)p(d|\Theta^t,g)}{\Sigma_g p(g|\Theta^t)p(d|\Theta^t,g)}\\\nonumber
+&=\frac{u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}{\Sigma_{k=1}^K u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}
+\end{align}
+
+Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
+
+
+
 \subsection{S-step}
+then simply add an S-step after the E-step,the value of $g$ for each session $d$ is
  \begin{equation}
  k \sim u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
  \end{equation}
 
  In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $
 
-
-E_{G} \ln p(D,G|\Theta) & = \Sigma_d \ln p(d,g|\Theta)\\\nonumber
-& = \Sigma_d \{ \ln u_k + \Sigma_{w\in W_d, v\in V_d} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
+\begin{equation}
+\begin{aligned}
+E_{G} \ln p(D,G|\Theta)  &= \Sigma_d \gamma(d,k,\Theta^t)\ln p(d,g|\Theta)\\\nonumber
+& = \Sigma_d \gamma(d,k,\Theta^t) \{ \ln u_k + \Sigma_{w\in W_d, v\in V_d} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
+\end{aligned}
+\end{equation}
 \\
 \subsection{M-step}
 
-In the M-step, for the :
+\subsubsection{For u}
+first maximize $Q(\Theta^t)$ with respect to $U$. For each $u \in U$, eliminating constant terms, we have:
+
+\begin{align}\label{equ:Lu}
+\min -\Sigma_{u(d)=u} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln u_k\\ \nonumber
+w.r.t \Sigma_k u_k =1
+\end{align}
+
+Solving the above Lagrange function Equ.~\ref{equ:Lu}, we get
+
+\begin{equation}\label{equ:u}
+u_k =\frac{\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)}{\Sigma_{s=1}^K \Sigma_{u(d)=u}\gamma(d,s,\Theta^t)}
+\end{equation}
+
+\subsubsection{For v}
+for the :
 \begin{equation*}
 \ln \frac{y}{x} \geq 1- \frac{x}{y}
 \end{equation*}\\
 we can derive a lower bound for the log-likelihood over the complete data, given the parameters learnt from previous round.
-hence, we obtain a minorization function of \tilde{Q}(\Theta^t).\\
- \begin{equation}
-\tilde{Q}(\Theta^t) &= \Sigma_d  \Sigma_{w\in W_d, v\in L_d}  \{ [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
+hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
+\begin{equation}
+\begin{aligned}
+\tilde{Q}(\Theta^t) &= \Sigma_d \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{ [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
 &\Sigma_{k'\neq k} [\ln (\theta w_{k'}) + 1 - \ln (v_{k'}^t + \theta^t w_{k'}^t) -  \frac{v_{k'}+\theta w_{k'}}{v_{k'}^t + \theta^t w_{k'}^t}]
 \}
- \end{equation}
+\end{aligned}
+\end{equation}
 
- \\
+
  $\tilde{Q}(\Theta^t)$ can be seperated for each item $v$. Considering only the $k-$th component $v_k$, $\tilde{Q}(v_k,\Theta^t)$ involves two terms, one of which is relevant to observations $d\in W(v)$ where $v$ acts as skyline object, the other is relevant to observations $d \in L(v)$ where $v$ acts as comparisons, $\tilde{Q}(v_k,\Theta^t)=\tilde{Q}^1(v_k,\Theta^t)+\tilde{Q}^2(v_k,\Theta^t)$. Removing all constants and irrelevant terms for $v_k$, we have the following minorizing function:
 
 
-\tilde{Q}^1(v_k,\Theta^t) & = \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{1}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
-\tilde{Q}^2(v_k,\Theta^t) & = -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t }{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{1}{\alpha(v,v',k,\Theta^t)}]
-
+\begin{equation}
+\begin{aligned}
+\tilde{Q}^1(v_k,\Theta^t) & = \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
+\tilde{Q}^2(v_k,\Theta^t) & = -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}]
+\end{aligned}
+\end{equation}
  where:\\
 
  $|L_d|$ is the number of objects being dominanted in $d$,
  \\ $\alpha(v,v',k,\Theta^t)=v_k^t + \theta^t {v'}_k^t$.
  \\
- (1)By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\partial v_k}=0$, we have:
+By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\partial v_k}=0$, we have:
 
 
+
+\begin{equation}
+\begin{aligned}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
+ & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
+\end{aligned}
+\end{equation}\\
+More concrete ï¼š
+
+
+\subsubsection{For $\theta$}
+Fix $u,v$, update $\theta$ by:
+
+  Fix $v \in V$ and $u \in U$, rearranging $Equ.9$, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
 
  \begin{equation}
-\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{1}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
- & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t }{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{1}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
- \end{equation}\\
-
-
-  \\(2)Fix $u,v$, update $\theta$ by:
-
-  Fix $v \in V$ and $u \in U$, rearranging Equ£¨9£©, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
-
-
- \begin{equation}
-\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d  \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
+\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d  \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
  \end{equation}
 
 \end{document}

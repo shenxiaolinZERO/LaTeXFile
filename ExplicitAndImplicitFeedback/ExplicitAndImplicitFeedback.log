@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  30 APR 2018 22:28
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 MAY 2018 15:47
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/ExplicitAndImplicitFeedback/ExplicitAndImp
 licitFeedback.tex
@@ -462,6 +462,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
 [3]
 (I:\GithubCodes\LaTeXFile\LaTeXFile\ExplicitAndImplicitFeedback\ExplicitAndImpl
 icitFeedback.aux)
@@ -487,7 +492,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ExplicitAndImplicitFeedback.pdf (3 pages, 152453 bytes).
+Output written on ExplicitAndImplicitFeedback.pdf (3 pages, 153009 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

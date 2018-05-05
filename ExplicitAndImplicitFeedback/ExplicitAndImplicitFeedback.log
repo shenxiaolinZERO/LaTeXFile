@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 MAY 2018 15:53
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 MAY 2018 15:59
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/ExplicitAndImplicitFeedback/ExplicitAndImp
 licitFeedback.tex
@@ -467,7 +467,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-[3]
+[3] [4]
 (I:\GithubCodes\LaTeXFile\LaTeXFile\ExplicitAndImplicitFeedback\ExplicitAndImpl
 icitFeedback.aux)
 
@@ -477,7 +477,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2264 strings out of 495354
  28837 string characters out of 3183860
- 91001 words of memory out of 3000000
+ 92001 words of memory out of 3000000
  5409 multiletter control sequences out of 15000+200000
  9023 words of font info for 33 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -492,9 +492,9 @@ TeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ExplicitAndImplicitFeedback.pdf (3 pages, 153007 bytes).
+Output written on ExplicitAndImplicitFeedback.pdf (4 pages, 153716 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

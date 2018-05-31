@@ -118,8 +118,20 @@ By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\p
  & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
 \end{aligned}
 \end{equation}\\
-More concrete ：
 
+More concrete:\\
+if $\gamma(d,k,\Theta^t)$'s k equals to $v_k $'s k:
+\begin{equation*}
+\begin{aligned}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} ]}{\Sigma_{d\in W(v)}|L_d|}+ \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
+\end{aligned}
+\end{equation*}\\
+else:
+\begin{equation*}
+\begin{aligned}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\theta^t\gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}|_{k'=k}]}{\Sigma_{d\in W(v)}|L_d|}+\frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}|_{k'=k}] }{\Sigma_{d\in W(v)}|L_d|}
+\end{aligned}
+\end{equation*}\\
 
 \subsubsection{For $\theta$}
 Fix $u,v$, update $\theta$ by:
@@ -127,7 +139,8 @@ Fix $u,v$, update $\theta$ by:
   Fix $v \in V$ and $u \in U$, rearranging $Equ.9$, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
 
  \begin{equation}
-\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d  \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
+\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
  \end{equation}
-
+Note that :\\
+in the $\Sigma_d \Sigma_k \gamma(d,k,\Theta^t)$ only summing these d which $\gamma(d,k,\Theta^t)$'s k equals to d's k.
 \end{document}

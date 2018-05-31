@@ -99,8 +99,8 @@ hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 
 \begin{equation}
 \begin{aligned}
-\tilde{Q}^1(v_k,\Theta^t) & = \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
-\tilde{Q}^2(v_k,\Theta^t) & = -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}]
+\tilde{Q}^1(v_k,\Theta^t) & = \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
+\tilde{Q}^2(v_k,\Theta^t) & = -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]
 \end{aligned}
 \end{equation}
  where:\\
@@ -114,8 +114,8 @@ By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\p
 
 \begin{equation}
 \begin{aligned}
-\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
- & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
+ & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
 \end{aligned}
 \end{equation}\\
 
@@ -129,7 +129,7 @@ if $\gamma(d,k,\Theta^t)$'s k equals to $v_k $'s k:
 else:
 \begin{equation*}
 \begin{aligned}
-\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\theta^t\gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}|_{k'=k}]}{\Sigma_{d\in W(v)}|L_d|}+\frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\gamma(d,k,\Theta^t)}{\alpha(v,v',k,\Theta^t)}|_{k'=k}] }{\Sigma_{d\in W(v)}|L_d|}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}|_{k'=k}]}{\Sigma_{d\in W(v)}|L_d|}+\frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}|_{k'=k}] }{\Sigma_{d\in W(v)}|L_d|}
 \end{aligned}
 \end{equation*}\\
 

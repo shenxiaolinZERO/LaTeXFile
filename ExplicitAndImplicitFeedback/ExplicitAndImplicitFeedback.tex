@@ -87,7 +87,7 @@ we can derive a lower bound for the log-likelihood over the complete data, given
 hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 \begin{equation}
 \begin{aligned}
-\tilde{Q}(\Theta^t) &= \Sigma_d \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{ [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
+\tilde{Q}(\Theta^t) &= \Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{ [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
 &\Sigma_{k'\neq k} [\ln (\theta w_{k'}) + 1 - \ln (v_{k'}^t + \theta^t w_{k'}^t) -  \frac{v_{k'}+\theta w_{k'}}{v_{k'}^t + \theta^t w_{k'}^t}]
 \}
 \end{aligned}

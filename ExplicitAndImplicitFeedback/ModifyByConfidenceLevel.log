@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 JUL 2018 21:43
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 JUL 2018 22:13
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/ExplicitAndImplicitFeedback/ModifyByConfid
 enceLevel.tex
@@ -406,7 +406,7 @@ LaTeX Font Info:    ... okay on input line 11.
 \makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks23
 )
-Overfull \hbox (2.62097pt too wide) in paragraph at lines 25--26
+Overfull \hbox (2.62097pt too wide) in paragraph at lines 30--31
 []\OT1/cmr/m/n/10 First, let's use $\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 d; k; \OT1/cmr/m/n/10 [])$ to de-note the con-di-tion-al prob-a-bil-i
 -ty $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[] \OT1/cmr/m/n/10 = 
@@ -414,52 +414,42 @@ Overfull \hbox (2.62097pt too wide) in paragraph at lines 25--26
  []
 
 
-Overfull \hbox (28.6787pt too wide) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/10 In the E-step of $\OML/cmm/m/it/10 t\OMS/cmsy/m/n/10  $\OT1/c
-mr/m/n/10 th EM round, com-pute the ex-pec-ta-tion $\OML/cmm/m/it/10 Q\OT1/cmr/
-m/n/10 ([]) = \OML/cmm/m/it/10 E[] [] p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; G\
-OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 )$ 
- []
-
-
-Overfull \hbox (44.06105pt too wide) detected at line 55
-[] []
+Overfull \hbox (13.6787pt too wide) in paragraph at lines 41--42
+\OT1/cmr/m/n/10 In the E-step of $\OML/cmm/m/it/10 t\OMS/cmsy/m/n/10  $\OT1/cmr
+/m/n/10 th EM round, com-pute the ex-pec-ta-tion $\OML/cmm/m/it/10 Q\OT1/cmr/m/
+n/10 ([]) = \OML/cmm/m/it/10 E[] [] p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; G\OM
+S/cmsy/m/n/10 j\OT1/cmr/m/n/10 )$ 
  []
 
 [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-Underfull \hbox (badness 10000) in paragraph at lines 55--57
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--80
-
- []
-
-
-Overfull \hbox (3.65099pt too wide) detected at line 86
+Overfull \hbox (3.65099pt too wide) detected at line 82
 [] []
  []
 
 
-Overfull \hbox (41.77246pt too wide) detected at line 97
+Overfull \hbox (41.77246pt too wide) detected at line 93
 [] []
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
@@ -467,10 +457,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--127
 (I:\GithubCodes\LaTeXFile\LaTeXFile\ExplicitAndImplicitFeedback\ModifyByConfide
 nceLevel.aux) ) 
 Here is how much of TeX's memory you used:
- 2265 strings out of 495354
- 28810 string characters out of 3183860
- 91960 words of memory out of 3000000
- 5410 multiletter control sequences out of 15000+200000
+ 2266 strings out of 495354
+ 28821 string characters out of 3183860
+ 91968 words of memory out of 3000000
+ 5411 multiletter control sequences out of 15000+200000
  9023 words of font info for 33 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,11n,23p,589b,189s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -484,7 +474,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ModifyByConfidenceLevel.pdf (3 pages, 155523 bytes).
+Output written on ModifyByConfidenceLevel.pdf (3 pages, 155828 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

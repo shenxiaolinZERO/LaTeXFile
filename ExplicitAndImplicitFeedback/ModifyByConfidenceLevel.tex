@@ -20,7 +20,12 @@
 \begin{align}\label{equ:skyline}
 		p(d|g,\theta,V,U) %& =\Pi_{w\in W^d, v\in L^d} [ p^a(w\succ v) \times \Pi_{a'\neq a} p^{a'}(w \succeq v)]\\
         =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
-		\end{align}
+\end{align}
+Besides,
+\begin{eqnarray}
+p(g|d,\Theta^{t}) & \propto   p(g|u,\Theta^{t}) p(d|g,\Theta^{t}) \\ \nonumber
+ p(g_k=1|d,\Theta^{t}) & \propto  u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
+\end{eqnarray}
 
 First, let's use $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
 \begin{align}\label{equ:conditional}
@@ -33,27 +38,18 @@ Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
 
 
 \subsection{E-step}
-\begin{eqnarray}
-p(g|d,\Theta^{t}) & \propto   p(g|u,\Theta^{t}) p(d|g,\Theta^{t}) \\ \nonumber
- p(g_k=1|d,\Theta^{t}) & \propto  u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
-\end{eqnarray}
-
-
-\subsection{S-step}
-then simply add an S-step after the E-step,the value of $g$ for each session $d$ is
- \begin{equation}
- k \sim u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
- \end{equation}
-
  In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $
 
-\begin{equation}
-\begin{aligned}
-E_{G} \ln p(D,G|\Theta)  &= \Sigma_d \gamma(d,k,\Theta^t)\ln p(d,g|\Theta)\\\nonumber
-& = \Sigma_d \gamma(d,k,\Theta^t) \{ \ln u_k + \Sigma_{w\in W_d, v\in V_d} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
-\end{aligned}
-\end{equation}
-\\
+\begin{align}\label{equ:estep}
+E_{G} \ln p(D,G|\Theta) & =\sum_{R,w \succ_R v} a^K \Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
+& = \sum_{R,w \succ_R v} a^K \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_k \\ \nonumber
+&+ \Sigma_{w\in W_d, v\in V_d} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
+\end{align}
+
+% $$ \ln p(D)=\sum_{i \succ j} p(i\succ j) $$
+% $$\ln p(D)=\sum_{R}{i \succ_R j} a^K p(i\succ_R j)$$
+% $$\ln p(D)=\sum_{R,i \succ_R j} a^K p(i\succ_R j)$$
+
 \subsection{M-step}
 
 \subsubsection{For u}

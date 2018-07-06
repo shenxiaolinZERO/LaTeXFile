@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 JUL 2018 23:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  6 JUL 2018 22:06
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/ExplicitAndImplicitFeedback/ModifyByConfid
 enceLevel.tex
@@ -378,20 +378,37 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
+(C:\CTEX\MiKTeX\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(C:\CTEX\MiKTeX\tex\latex\00miktex\color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
 (I:\GithubCodes\LaTeXFile\LaTeXFile\ExplicitAndImplicitFeedback\ModifyByConfide
 nceLevel.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
  (C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count100
@@ -406,7 +423,7 @@ LaTeX Font Info:    ... okay on input line 11.
 \makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks23
 )
-Overfull \hbox (2.62097pt too wide) in paragraph at lines 30--31
+Overfull \hbox (2.62097pt too wide) in paragraph at lines 31--32
 []\OT1/cmr/m/n/10 First, let's use $\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 d; k; \OT1/cmr/m/n/10 [])$ to de-note the con-di-tion-al prob-a-bil-i
 -ty $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[] \OT1/cmr/m/n/10 = 
@@ -414,7 +431,7 @@ Overfull \hbox (2.62097pt too wide) in paragraph at lines 30--31
  []
 
 
-Overfull \hbox (13.6787pt too wide) in paragraph at lines 41--42
+Overfull \hbox (13.6787pt too wide) in paragraph at lines 43--44
 \OT1/cmr/m/n/10 In the E-step of $\OML/cmm/m/it/10 t\OMS/cmsy/m/n/10  $\OT1/cmr
 /m/n/10 th EM round, com-pute the ex-pec-ta-tion $\OML/cmm/m/it/10 Q\OT1/cmr/m/
 n/10 ([]) = \OML/cmm/m/it/10 E[] [] p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; G\OM
@@ -424,27 +441,27 @@ S/cmsy/m/n/10 j\OT1/cmr/m/n/10 )$
 [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-Underfull \hbox (badness 10000) in paragraph at lines 73--76
+Underfull \hbox (badness 10000) in paragraph at lines 75--78
 
  []
 
 
-Overfull \hbox (48.88101pt too wide) detected at line 82
+Overfull \hbox (48.88101pt too wide) detected at line 84
 [] []
  []
 
 
-Overfull \hbox (97.00252pt too wide) detected at line 93
+Overfull \hbox (97.00252pt too wide) detected at line 95
 [] []
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 93--95
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
@@ -452,13 +469,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--109
 (I:\GithubCodes\LaTeXFile\LaTeXFile\ExplicitAndImplicitFeedback\ModifyByConfide
 nceLevel.aux) ) 
 Here is how much of TeX's memory you used:
- 2266 strings out of 495354
- 28821 string characters out of 3183860
- 91968 words of memory out of 3000000
- 5411 multiletter control sequences out of 15000+200000
+ 2732 strings out of 495354
+ 34005 string characters out of 3183860
+ 102149 words of memory out of 3000000
+ 5870 multiletter control sequences out of 15000+200000
  9023 words of font info for 33 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,11n,23p,589b,189s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,11n,35p,589b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/CT
 EX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/c
@@ -469,7 +486,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ModifyByConfidenceLevel.pdf (3 pages, 155445 bytes).
+Output written on ModifyByConfidenceLevel.pdf (3 pages, 155529 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

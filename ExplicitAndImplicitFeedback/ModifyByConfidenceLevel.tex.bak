@@ -33,7 +33,7 @@ First, let's use $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p
 &=\frac{u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}{\Sigma_{k=1}^K u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}
 \end{align}
 
-Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
+Note that $\for all d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
 
 
 
@@ -77,7 +77,7 @@ hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 \begin{aligned}
 \tilde{Q}(\Theta^t) &= \sum_{R,w \succ_R v} a^K \Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{ [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
 &\Sigma_{k'\neq k} [\ln (\theta w_{k'}) + 1 - \ln (v_{k'}^t + \theta^t w_{k'}^t) -  \frac{v_{k'}+\theta w_{k'}}{v_{k'}^t + \theta^t w_{k'}^t}]
-\}
+\} ...................(7)
 \end{aligned}
 \end{equation}
 
@@ -87,8 +87,8 @@ hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 
 \begin{equation}
 \begin{aligned}
-\tilde{Q}^1(v_k,\Theta^t) & = \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
-\tilde{Q}^2(v_k,\Theta^t) & = -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]
+\tilde{Q}^1(v_k,\Theta^t) & =\sum_{R,w \succ_R v} a^K \{ \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\}\\ \nonumber
+\tilde{Q}^2(v_k,\Theta^t) & =\sum_{R,w \succ_R v} a^K \{ -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]\}
 \end{aligned}
 \end{equation}
  where:\\
@@ -102,19 +102,18 @@ By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\p
 
 \begin{equation}
 \begin{aligned}
-\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
- & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
+\frac{1}{v_k}=\sum_{R,w \succ_R v} a^K \{ &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
+ & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}\}
 \end{aligned}
 \end{equation}\\
 
 \subsubsection{For $\theta$}
 Fix $u,v$, update $\theta$ by:
 
-  Fix $v \in V$ and $u \in U$, rearranging $Equ.9$, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
+  Fix $v \in V$ and $u \in U$, rearranging $Equ.7$, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
 
  \begin{equation}
-\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
+\theta = \sum_{R,w \succ_R v} a^K \{\frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]} \}
  \end{equation}
-Note that :\\
-in the $\Sigma_d \Sigma_k \gamma(d,k,\Theta^t)$ only summing these d which $\gamma(d,k,\Theta^t)$'s k equals to d's k.
+
 \end{document}

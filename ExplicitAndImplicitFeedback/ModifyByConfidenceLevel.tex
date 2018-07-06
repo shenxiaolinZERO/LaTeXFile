@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{amsmath}
+\usepackage{xcolor}
 
 \title{Modify By Confidence Level}
 \author{Xiaolin Shen}
@@ -19,7 +20,7 @@
 
 \begin{align}\label{equ:skyline}
 		p(d|g,\theta,V,U) %& =\Pi_{w\in W^d, v\in L^d} [ p^a(w\succ v) \times \Pi_{a'\neq a} p^{a'}(w \succeq v)]\\
-        =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
+        =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d} \textcolor{red}{a^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
 \end{align}
 Besides,
 \begin{eqnarray}
@@ -30,12 +31,13 @@ p(g|d,\Theta^{t}) & \propto   p(g|u,\Theta^{t}) p(d|g,\Theta^{t}) \\ \nonumber
 First, let's use $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
 \begin{align}\label{equ:conditional}
 \gamma(d,k,\Theta^t) &=\frac{p(d,g|\Theta^t)}{\Sigma_g p(d,g|\Theta^t)} = \frac{p(g|\Theta^t)p(d|\Theta^t,g)}{\Sigma_g p(g|\Theta^t)p(d|\Theta^t,g)}\\\nonumber
-&=\frac{u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}{\Sigma_{k=1}^K u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}
+&=\frac{u_k \Pi_{w \in W^d, v\in L^d} \textcolor{red}{a^K}\frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}{\Sigma_{k=1}^K u_k \Pi_{w \in W^d, v\in L^d} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}
 \end{align}
 
 Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
 
-
+%\textcolor{red/blue/green/black/white/cyan/magenta/yellow}{text}
+\textcolor{red}{text}
 
 \subsection{E-step}
  In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $

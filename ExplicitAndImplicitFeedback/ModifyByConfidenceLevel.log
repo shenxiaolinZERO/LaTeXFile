@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 JUL 2018 22:13
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 JUL 2018 23:02
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/ExplicitAndImplicitFeedback/ModifyByConfid
 enceLevel.tex
@@ -429,12 +429,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--76
  []
 
 
-Overfull \hbox (3.65099pt too wide) detected at line 82
+Overfull \hbox (48.88101pt too wide) detected at line 82
 [] []
  []
 
 
-Overfull \hbox (41.77246pt too wide) detected at line 93
+Overfull \hbox (97.00252pt too wide) detected at line 93
 [] []
  []
 
@@ -445,11 +445,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 108--109
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
@@ -474,7 +469,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ModifyByConfidenceLevel.pdf (3 pages, 155828 bytes).
+Output written on ModifyByConfidenceLevel.pdf (3 pages, 155445 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

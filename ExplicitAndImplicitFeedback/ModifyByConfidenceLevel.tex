@@ -23,7 +23,7 @@
         =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
 \end{align}
 
-\textcolor{red}{where $ w \succ_R v $ is the ranking pair in R relation, a is the given value.}
+\textcolor{red}{where $ w \succ_R v $ is the ranking pair in $R$ relation existing in session $d$, $ a $ is the given value.}
 
 Besides,
 \begin{eqnarray}
@@ -91,7 +91,7 @@ hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 \begin{equation}
 \begin{aligned}
 \tilde{Q}^1(v_k,\Theta^t) & =\Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
-\tilde{Q}^2(v_k,\Theta^t) & =\sum_{R,w \succ_R v} a^K \{ -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]\}
+\tilde{Q}^2(v_k,\Theta^t) & =-v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]
 \end{aligned}
 \end{equation}
  where:\\
@@ -105,8 +105,8 @@ By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\p
 
 \begin{equation}
 \begin{aligned}
-\frac{1}{v_k}=\sum_{R,w \succ_R v} a^K \{ &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
- & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}\}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
+ & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
 \end{aligned}
 \end{equation}\\
 
@@ -116,7 +116,7 @@ Fix $u,v$, update $\theta$ by:
   Fix $v \in V$ and $u \in U$, rearranging $Equ.7$, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
 
  \begin{equation}
-\theta = \sum_{R,w \succ_R v} a^K \{\frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]} \}
+\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
  \end{equation}
 
 \end{document}

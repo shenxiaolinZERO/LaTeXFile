@@ -23,7 +23,7 @@
         =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
 \end{align}
 
-\textcolor{red}{where $ w \succ_R v $ is the ranking pair in R relation, a is the given value.}
+\textcolor{red}{where $ w \succ_R v $ is the ranking pair in R relation, $ a $ is the given value.}
 
 Besides,
 \begin{eqnarray}
@@ -44,9 +44,9 @@ Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
  In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $
 
 \begin{align}\label{equ:estep}
-E_{G} \ln p(D,G|\Theta) & =\sum_{R,w \succ_R v} a^K \Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
-& = \sum_{R,w \succ_R v} a^K \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_k \\ \nonumber
-&+ \Sigma_{w\in W_d, v\in V_d} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
+E_{G} \ln p(D,G|\Theta) & =\Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
+& = \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_k \\ \nonumber
+&+ \Sigma_{w\in W_d, v\in V_d,\textcolor{red}{ w \succ_R v}} [\textcolor{red}{\ln a^K} + \ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
 \end{align}
 
 % $$ \ln p(D)=\sum_{i \succ j} p(i\succ j) $$
@@ -59,14 +59,14 @@ E_{G} \ln p(D,G|\Theta) & =\sum_{R,w \succ_R v} a^K \Sigma_{d} \Sigma_{k=1}^K \g
 first maximize $Q(\Theta^t)$ with respect to $U$. For each $u \in U$, eliminating constant terms, we have:
 
 \begin{align}\label{equ:Lu}
-\min -\sum_{R,w \succ_R v} a^K \Sigma_{u(d)=u} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln u_k\\ \nonumber
+\min -\Sigma_{u(d)=u} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln u_k\\ \nonumber
 w.r.t \Sigma_k u_k =1
 \end{align}
 
 Solving the above Lagrange function Equ.~\ref{equ:Lu}, we get
 
 \begin{equation}\label{equ:u}
-u_k =\frac{\sum_{R,w \succ_R v} a^K \Sigma_{u(d)=u}\gamma(d,k,\Theta^t)}{ \sum_{R,w \succ_R v} a^K \Sigma_{s=1}^K \Sigma_{u(d)=u}\gamma(d,s,\Theta^t)}
+u_k =\frac{\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)}{\Sigma_{s=1}^K \Sigma_{u(d)=u}\gamma(d,s,\Theta^t)}
 \end{equation}
 
 \subsubsection{For v}
@@ -78,7 +78,7 @@ we can derive a lower bound for the log-likelihood over the complete data, given
 hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 \begin{equation}
 \begin{aligned}
-\tilde{Q}(\Theta^t) &= \sum_{R,w \succ_R v} a^K \Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{ [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
+\tilde{Q}(\Theta^t) &=\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{\textcolor{red}{\ln a^K} + [\ln w_k + 1 - \ln (w_k^t + \theta^t v_k^t) - \frac{w_k+\theta v_k}{w_k^t + \theta^tv_k^t}]+\\\nonumber
 &\Sigma_{k'\neq k} [\ln (\theta w_{k'}) + 1 - \ln (v_{k'}^t + \theta^t w_{k'}^t) -  \frac{v_{k'}+\theta w_{k'}}{v_{k'}^t + \theta^t w_{k'}^t}]
 \} ...................(7)
 \end{aligned}
@@ -90,8 +90,8 @@ hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
 
 \begin{equation}
 \begin{aligned}
-\tilde{Q}^1(v_k,\Theta^t) & =\sum_{R,w \succ_R v} a^K \{ \Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\}\\ \nonumber
-\tilde{Q}^2(v_k,\Theta^t) & =\sum_{R,w \succ_R v} a^K \{ -v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]\}
+\tilde{Q}^1(v_k,\Theta^t) & =\Sigma_{d\in W(v)} |L_d| \ln v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]\\ \nonumber
+\tilde{Q}^2(v_k,\Theta^t) & =-v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}]
 \end{aligned}
 \end{equation}
  where:\\
@@ -105,8 +105,8 @@ By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\p
 
 \begin{equation}
 \begin{aligned}
-\frac{1}{v_k}=\sum_{R,w \succ_R v} a^K \{ &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
- & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}\}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{\gamma(d,k,\Theta^t)}{ \alpha(v,v',k,\Theta^t)} +\Sigma_{k'\neq k}\frac{\theta^t\gamma(d,k',\Theta^t)}{\alpha(v',v,k,\Theta^t)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
+ & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{\theta^t \gamma(d,k,\Theta^t)}{\alpha(v',v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{\gamma(d,k',\Theta^t)}{\alpha(v,v',k,\Theta^t)}] }{\Sigma_{d\in W(v)}|L_d|}
 \end{aligned}
 \end{equation}\\
 
@@ -116,7 +116,7 @@ Fix $u,v$, update $\theta$ by:
   Fix $v \in V$ and $u \in U$, rearranging $Equ.7$, we have the solution for $\frac{\partial \tilde{Q}(\Theta^t)}{\partial \theta}=0$ as:
 
  \begin{equation}
-\theta = \sum_{R,w \succ_R v} a^K \{\frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]} \}
+\theta = \frac{(K-1)\Sigma_d |W_d| |L_d|}{\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w,v} [\frac{v_k}{\alpha(w,v,k,\Theta^t)}+\Sigma_{k'\neq k} \frac{w_{k'}}{\alpha(v,w,k',\Theta^t)}]}
  \end{equation}
 
 \end{document}

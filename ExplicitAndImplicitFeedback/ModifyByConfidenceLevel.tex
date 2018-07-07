@@ -23,7 +23,7 @@
         =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
 \end{align}
 
-\textcolor{red}
+\textcolor{red}{where $ w \succ_R v $ is the ranking pair in R relation, a is the given value.}
 
 Besides,
 \begin{eqnarray}
@@ -44,9 +44,9 @@ Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
  In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $
 
 \begin{align}\label{equ:estep}
-E_{G} \ln p(D,G|\Theta) & =\sum_{R,w \succ_R v} a^K \Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
-& = \sum_{R,w \succ_R v} a^K \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_k \\ \nonumber
-&+ \Sigma_{w\in W_d, v\in V_d} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
+E_{G} \ln p(D,G|\Theta) & =\Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
+& = \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_k \\ \nonumber
+&+ \Sigma_{w\in W_d, v\in V_d,\textcolor{red}{ w \succ_R v}}\textcolor{red}{a^K} [\ln \frac{w_k}{w_k +\theta v_k} +\Sigma_{k'\neq k} \ln \frac{\theta w_{k'}}{v_{k'}+\theta w_{k'}}]\}
 \end{align}
 
 % $$ \ln p(D)=\sum_{i \succ j} p(i\succ j) $$
@@ -59,7 +59,7 @@ E_{G} \ln p(D,G|\Theta) & =\sum_{R,w \succ_R v} a^K \Sigma_{d} \Sigma_{k=1}^K \g
 first maximize $Q(\Theta^t)$ with respect to $U$. For each $u \in U$, eliminating constant terms, we have:
 
 \begin{align}\label{equ:Lu}
-\min -\sum_{R,w \succ_R v} a^K \Sigma_{u(d)=u} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln u_k\\ \nonumber
+\min -\Sigma_{u(d)=u} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln u_k\\ \nonumber
 w.r.t \Sigma_k u_k =1
 \end{align}
 

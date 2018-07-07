@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  7 JUL 2018 09:48
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  7 JUL 2018 10:27
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/ExplicitAndImplicitFeedback/ModifyByConfid
 enceLevel.tex
@@ -438,6 +438,11 @@ n/10 ([]) = \OML/cmm/m/it/10 E[] [] p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; G\OM
 S/cmsy/m/n/10 j\OT1/cmr/m/n/10 )$ 
  []
 
+
+Overfull \hbox (6.83296pt too wide) in paragraph at lines 50--50
+[] 
+ []
+
 [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
@@ -446,12 +451,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--79
  []
 
 
-Overfull \hbox (48.88101pt too wide) detected at line 85
+Overfull \hbox (38.86876pt too wide) detected at line 85
 [] []
  []
 
 
-Overfull \hbox (97.00252pt too wide) detected at line 96
+Overfull \hbox (41.77246pt too wide) detected at line 96
 [] []
  []
 
@@ -486,7 +491,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ModifyByConfidenceLevel.pdf (3 pages, 155354 bytes).
+Output written on ModifyByConfidenceLevel.pdf (3 pages, 155249 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

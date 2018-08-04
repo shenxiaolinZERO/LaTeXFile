@@ -1,0 +1,48 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\title{The BTL Model}
+\author{Xiaolin Shen}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The BTL Model --}
+
+ Suppose $g$ is a $K-$dim vector, with one and only one component to be equal to $1$, for each pair, $p(<w,v>|g_k=1) = p^k(w\succ v) \times \Pi_{k'\neq k} p^{k'}(w \succeq v)$. then the probability of generating a session observation $d$ given the hidden aspect $a$ is defined as:
+
+\begin{align}\label{equ:skyline}
+		p(d|g,\theta,V,U) %& =\Pi_{w\in W^d, v\in L^d} [ p^a(w\succ v) \times \Pi_{a'\neq a} p^{a'}(w \succeq v)]\\
+        =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a_{r_i}^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
+\end{align}
+
+\textcolor{red}{where $ w \succ_R v $ is the ranking pair in $R$ relation existing in session $d$.
+ e.g.$ r1 \in R $ : buy v.s. click ,
+   $ r2 \in R $ : buy v.s. add to cart  ... And $ a $ is the given value.}
+
+Besides,
+\begin{eqnarray}
+p(g|d,\Theta^{t}) & \propto   p(g|u,\Theta^{t}) p(d|g,\Theta^{t}) \\ \nonumber
+ p(g_k=1|d,\Theta^{t}) & \propto  u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
+\end{eqnarray}
+
+First, let's use $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
+\begin{align}\label{equ:conditional}
+\gamma(d,k,\Theta^t) &=\frac{p(d,g|\Theta^t)}{\Sigma_g p(d,g|\Theta^t)} = \frac{p(g|\Theta^t)p(d|\Theta^t,g)}{\Sigma_g p(g|\Theta^t)p(d|\Theta^t,g)}\\\nonumber
+&=\frac{u_k \Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a_{r_i}^K}\frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}{\Sigma_{k=1}^K u_k \Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a_{r_i}^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}
+\end{align}
+
+Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
+
+
+
+
+
+\end{document}

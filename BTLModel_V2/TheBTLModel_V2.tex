@@ -29,11 +29,12 @@ p(<w,l>|V,U)
 = \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}]
 \end{align}
 
-the likelihood function can be written as:
+The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$
 \begin{align}
 p(D|\Theta)
-=\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[{\frac{u_k w_k}{u_k w_k+u_k v_k}}]
+=\Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[{\frac{u_k w_k}{u_k w_k+u_k v_k}}]
 \end{align}
+
 
 
 \end{document}

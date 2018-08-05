@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 AUG 2018 20:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 AUG 2018 20:40
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V2.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V2.tex
@@ -424,10 +424,10 @@ LaTeX Font Info:    ... okay on input line 12.
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
 (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V2.aux) ) 
 Here is how much of TeX's memory you used:
- 2725 strings out of 495354
- 33724 string characters out of 3183860
- 95104 words of memory out of 3000000
- 5864 multiletter control sequences out of 15000+200000
+ 2724 strings out of 495354
+ 33711 string characters out of 3183860
+ 96096 words of memory out of 3000000
+ 5863 multiletter control sequences out of 15000+200000
  8408 words of font info for 31 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,9n,35p,375b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -440,7 +440,7 @@ onts/cm/cmr12.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/
 CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/c
 msy7.pfb>
-Output written on TheBTLModel_V2.pdf (1 page, 100362 bytes).
+Output written on TheBTLModel_V2.pdf (1 page, 101840 bytes).
 PDF statistics:
  46 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

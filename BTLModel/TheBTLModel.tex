@@ -15,34 +15,93 @@
 
 
 \section{The BTL Model --}
+The winning item $w\in W^d$ is a skyline object. To define the probability of skyline events, use the BTL model.
+
+\begin{align*}
+	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
+	p(i \prec j |u)=\frac{uj}{uj+ ui} \\
+\end{align*}
+
+If the favorite aspect in current session is $k$, then following the definition of skyline object, $w\in W^d$ is superior in the favorite aspect,  and is not worse than other items in other aspects. $w\in W^d$ ranks higher than item $v\in L^d$ in the aspect $k$ is
+$$p^k(w \succ v)=\frac{u_k w_k}{u_k w_k+u_k v_k}$$
+ the probability of item $w\in W^d$ ranks not lower than item $v\in L^d$ in the aspect $k'!=k$. Therefore,
+ $$p^{k'}(w \succeq v)=1- p^{k'} (v \succ w) = 1-\frac{u_k v_k}{u_k w_k+u_k v_k}=\frac{u_k w_k}{u_k w_k+u_k v_k}$$.
 
  Suppose $g$ is a $K-$dim vector, with one and only one component to be equal to $1$, for each pair, $p(<w,v>|g_k=1) = p^k(w\succ v) \times \Pi_{k'\neq k} p^{k'}(w \succeq v)$. then the probability of generating a session observation $d$ given the hidden aspect $a$ is defined as:
 
 \begin{align}\label{equ:skyline}
-		p(d|g,\theta,V,U) %& =\Pi_{w\in W^d, v\in L^d} [ p^a(w\succ v) \times \Pi_{a'\neq a} p^{a'}(w \succeq v)]\\
-        =p(d|\Theta^t,g)=\Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a_{r_i}^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}
+p(d|g,V,U)
+		=\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}^{g_k} { \frac{u_k w_k}{u_k w_k+u_k v_k}}^{1-g_k}]\\
+=\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}]
 \end{align}
 
-\textcolor{red}{where $ w \succ_R v $ is the ranking pair in $R$ relation existing in session $d$.
- e.g.$ r1 \in R $ : buy v.s. click ,
-   $ r2 \in R $ : buy v.s. add to cart  ... And $ a $ is the given value.}
 
-Besides,
-\begin{eqnarray}
-p(g|d,\Theta^{t}) & \propto   p(g|u,\Theta^{t}) p(d|g,\Theta^{t}) \\ \nonumber
- p(g_k=1|d,\Theta^{t}) & \propto  u_k^{t} \frac{w_{k}^t} {w_{k}^t+\theta^t l_{k}^t} \prod_{k'\neq k}  [\frac{\theta^t w_{k'}^t} {l_{k'}^t + \theta^t w_{k'}^t}]
-\end{eqnarray}
-
-First, let's use $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
+First, let's use  $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
 \begin{align}\label{equ:conditional}
 \gamma(d,k,\Theta^t) &=\frac{p(d,g|\Theta^t)}{\Sigma_g p(d,g|\Theta^t)} = \frac{p(g|\Theta^t)p(d|\Theta^t,g)}{\Sigma_g p(g|\Theta^t)p(d|\Theta^t,g)}\\\nonumber
-&=\frac{u_k \Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a_{r_i}^K}\frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}{\Sigma_{k=1}^K u_k \Pi_{w \in W^d, v\in L^d,\textcolor{red}{ w \succ_R v}} \textcolor{red}{a_{r_i}^K} \frac{w_k}{w_k+\theta^t v_k}\Pi_{k'\neq k}\frac{\theta^t w_{k'}}{v_{k'}+\theta^t w_{k'}}}
+&=\frac{u_{g^k} \Pi_{w \in W^d, v\in L^d} \Pi_{k=1}^{K}\frac{u_k w_k}{u_k w_k+u_k v_k}}{\Sigma_{k=1}^K u_{g^k} \Pi_{w \in W^d, v\in L^d} \Pi_{k=1}^{K}\frac{u_k w_k}{u_k w_k+u_k v_k}}
 \end{align}
 
-Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$.
+Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$, $g^k$ denote u's favorite aspect.
+
+\subsection{E-step}
+ In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $
+
+\begin{align}\label{equ:estep}
+E_{G} \ln p(D,G|\Theta) & =\Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
+& = \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_{g^k}  \\ \nonumber
+&+ \Sigma_{w\in W_d, v\in V_d}[\ln \frac{u_k w_k}{u_k w_k+u_k v_k}] \}
+\end{align}
+
+\subsection{M-step}
+\subsubsection{For u}
+firstly, maximize $Q(\Theta^t)$ with respect to $U$. For each $u \in U$, eliminating constant terms, we have:
+
+By setting the partial derivative of $\frac{\partial \tilde{Q}(u_k,\Theta^t)}{\partial u_k}=0$, we have:
+\begin{align}
+\Sigma_{d} \Sigma_{k=1}^K \Sigma_{w\in W_d, v\in V_d}(\frac{1}{u_k}+\frac{ w_k}{u_k w_k}-\frac{v_k+w_k}{u_k w_k+u_k v_k}) = 0
+\end{align}
+
+\begin{equation}
+u_k =\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)
+\end{equation}
+
+\subsubsection{For v}
+secondly, maximize $Q(\Theta^t)$ with respect to $V$.
+for the :
+\begin{equation*}
+\ln \frac{y}{x} \geq 1- \frac{x}{y}
+\end{equation*}\\
+we can derive a lower bound for the log-likelihood over the complete data, given the parameters learnt from previous round.
+hence, we obtain a minorization function of $\tilde{Q}(\Theta^t)$.\\
+\begin{equation}
+\begin{aligned}
+\tilde{Q}(\Theta^t) &=\Sigma_d \Sigma_k \gamma(d,k,\Theta^t) \Sigma_{w\in W_d, v\in L_d}  \{[\ln (u_k w_k) + 1 - \ln (u_k^t w_k^t+u_k^t v_k^t) - \frac{u_k w_k+u_k v_k}{u_k^t w_k^t+u_k^t v_k^t}]\}
+\end{aligned}
+\end{equation}
 
 
+$\tilde{Q}(\Theta^t)$ can be seperated for each item $v$. Considering only the $k-$th component $v_k$, $\tilde{Q}(v_k,\Theta^t)$ involves two terms, one of which is relevant to observations $d\in W(v)$ where $v$ acts as skyline object, the other is relevant to observations $d \in L(v)$ where $v$ acts as comparisons, $\tilde{Q}(v_k,\Theta^t)=\tilde{Q}^1(v_k,\Theta^t)+\tilde{Q}^2(v_k,\Theta^t)$. Removing all constants and irrelevant terms for $v_k$, we have the following minorizing function:
+\begin{equation}
+\begin{aligned}
+\tilde{Q}^1(v_k,\Theta^t) & =\Sigma_{d\in W(v)} |L_d| \ln u_k v_k -v_k\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{u_k \gamma(d,k,\Theta^t)}{ \alpha(u,w,v,k)}]\\ \nonumber
+\tilde{Q}^2(v_k,\Theta^t) & =-v_k \Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{u_k \gamma(d,k,\Theta^t)}{\alpha(u,w,v,k)}]
+\end{aligned}
+\end{equation}
+ where:\\
+
+ $|L_d|$ is the number of objects being dominanted in $d$,
+ \\ $\alpha(u,w,v,k)=u_k^t w_k^t+u_k^t v_k^t$.
+ \\
+
+By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\partial v_k}=0$, we have:
 
 
+\begin{equation}
+\begin{aligned}
+\frac{1}{v_k}= &\frac{\Sigma_{d\in W(v)}\Sigma_{v'\in L_d} [\frac{u_k \gamma(d,k,\Theta^t)}{ \alpha(u,w,v,k)}]}{\Sigma_{d\in W(v)}|L_d|}\\\nonumber
+ & + \frac{\Sigma_{d\in L(v)}\Sigma_{v'\in W_d} [\frac{u_k \gamma(d,k,\Theta^t)}{\alpha(u,w,v,k)}] }{\Sigma_{d\in W(v)}|L_d|}
+\end{aligned}
+\end{equation}\\
 
 \end{document}

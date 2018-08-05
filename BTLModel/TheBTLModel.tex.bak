@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 
-\title{Modify By Confidence Level}
+\title{The BTL Model}
 \author{Xiaolin Shen}
 
 \begin{document}
@@ -14,5 +14,66 @@
 \maketitle
 
 
-\section{The BTL Model ---ModifyByConfidenceLevel}
+\section{The BTL Model --}
+The winning item $w\in W^d$ is a skyline object. To define the probability of skyline events, use the BTL model.
+
+\begin{align*}
+	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
+	p(i \prec j |u)=\frac{uj}{uj+ ui} \\
+\end{align*}
+
+If the favorite aspect in current session is $k$, then following the definition of skyline object, $w\in W^d$ is superior in the favorite aspect,  and is not worse than other items in other aspects. $w\in W^d$ ranks higher than item $v\in L^d$ in the aspect $k$ is
+$$p^k(w \succ v)=\frac{u_k w_k}{u_k w_k+u_k v_k}$$
+ the probability of item $w\in W^d$ ranks not lower than item $v\in L^d$ in the aspect $k'!=k$. Therefore,
+ $$p^{k'}(w \succeq v)=1- p^{k'} (v \succ w) = 1-\frac{u_k v_k}{u_k w_k+u_k v_k}=\frac{u_k w_k}{u_k w_k+u_k v_k}$$.
+
+ Suppose $g$ is a $K-$dim vector, with one and only one component to be equal to $1$, for each pair, $p(<w,v>|g_k=1) = p^k(w\succ v) \times \Pi_{k'\neq k} p^{k'}(w \succeq v)$. then the probability of generating a session observation $d$ given the hidden aspect $a$ is defined as:
+
+\begin{align}\label{equ:skyline}
+p(d|g,V,U)
+		=\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}^{g_k} { \frac{u_k w_k}{u_k w_k+u_k v_k}}^{1-g_k}]\\
+=\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}]
+\end{align}
+
+
+First, let's use  $\gamma(d,k,\Theta^t)$ to denote the conditional probability $p(g_k=1|d,\Theta^t)$ given parameters in the $t-$th round, when the current session specific favorite aspect is $g_k=1$, defined as follows
+\begin{align}\label{equ:conditional}
+\gamma(d,k,\Theta^t) &=\frac{p(d,g|\Theta^t)}{\Sigma_g p(d,g|\Theta^t)} = \frac{p(g|\Theta^t)p(d|\Theta^t,g)}{\Sigma_g p(g|\Theta^t)p(d|\Theta^t,g)}\\\nonumber
+&=\frac{u_{g^k} \Pi_{w \in W^d, v\in L^d} \Pi_{k=1}^{K}\frac{u_k w_k}{u_k w_k+u_k v_k}}{\Sigma_{k=1}^K u_{g^k} \Pi_{w \in W^d, v\in L^d} \Pi_{k=1}^{K}\frac{u_k w_k}{u_k w_k+u_k v_k}}
+\end{align}
+
+Note that $\forall d, \Sigma_k \gamma(d,k,\Theta^t)=1$, $g^k$ denote u's favorite aspect.
+
+\subsection{E-step}
+ In the E-step of $t-$th  EM round, compute the expectation $Q(\Theta^t)=E_{G} \ln p(D,G|\Theta) $
+
+\begin{align}\label{equ:estep}
+E_{G} \ln p(D,G|\Theta) & =\Sigma_{d} \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \ln p(d,g|\Theta)\\ \nonumber
+& = \Sigma_d \Sigma_{k=1}^K \gamma(d,k,\Theta^t) \{ \ln u_{g^k}  \\ \nonumber
+&+ \Sigma_{w\in W_d, v\in V_d}[\ln \frac{u_k w_k}{u_k w_k+u_k v_k}] \}
+\end{align}
+
+\subsection{M-step}
+firstly, maximize $Q(\Theta^t)$ with respect to $U$. For each $u \in U$, eliminating constant terms, we have:
+
+By setting the partial derivative of $\frac{\partial \tilde{Q}(u_k,\Theta^t)}{\partial u_k}=0$, we have:
+\begin{align}
+\Sigma_{d} \Sigma_{k=1}^K \Sigma_{w\in W_d, v\in V_d}(\frac{1}{u_k}+\frac{ w_k}{u_k w_k}-\frac{v_k+w_k}{u_k w_k+u_k v_k}) = 0
+\end{align}
+
+\begin{equation}
+u_k =\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)
+\end{equation}
+
+secondly, maximize $Q(\Theta^t)$ with respect to $V$. For each $v \in V$, we have:
+
+By setting the partial derivative of $\frac{\partial \tilde{Q}(v_k,\Theta^t)}{\partial v_k}=0$, we have:
+\begin{align}
+\Sigma_{d} \Sigma_{k=1}^K \Sigma_{w\in W_d, v\in V_d}(\frac{1}{u_k}+\frac{ w_k}{u_k w_k}-\frac{v_k+w_k}{u_k w_k+u_k v_k}) = 0
+\end{align}
+
+\begin{equation}
+u_k =\Sigma_{u(d)=u}\gamma(d,k,\Theta^t)
+\end{equation}
+
 \end{document}

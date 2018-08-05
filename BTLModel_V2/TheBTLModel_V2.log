@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 AUG 2018 20:21
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 AUG 2018 20:24
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V2.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V2.tex
@@ -420,7 +420,7 @@ LaTeX Font Info:    ... okay on input line 12.
 \makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks23
 )
-Overfull \hbox (2.62097pt too wide) in paragraph at lines 34--35
+Overfull \hbox (2.62097pt too wide) in paragraph at lines 33--34
 []\OT1/cmr/m/n/10 First, let's use $\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 d; k; \OT1/cmr/m/n/10 [])$ to de-note the con-di-tion-al prob-a-bil-i
 -ty $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[] \OT1/cmr/m/n/10 = 
@@ -428,7 +428,7 @@ Overfull \hbox (2.62097pt too wide) in paragraph at lines 34--35
  []
 
 
-Overfull \hbox (13.6787pt too wide) in paragraph at lines 43--44
+Overfull \hbox (13.6787pt too wide) in paragraph at lines 42--43
 \OT1/cmr/m/n/10 In the E-step of $\OML/cmm/m/it/10 t\OMS/cmsy/m/n/10  $\OT1/cmr
 /m/n/10 th EM round, com-pute the ex-pec-ta-tion $\OML/cmm/m/it/10 Q\OT1/cmr/m/
 n/10 ([]) = \OML/cmm/m/it/10 E[] [] p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; G\OM
@@ -438,27 +438,27 @@ S/cmsy/m/n/10 j\OT1/cmr/m/n/10 )$
 [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-Underfull \hbox (badness 10000) in paragraph at lines 69--72
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
 
-Overfull \hbox (53.22195pt too wide) detected at line 76
+Overfull \hbox (53.22195pt too wide) detected at line 75
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--91
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
@@ -481,7 +481,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 /type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on TheBTLModel_V2.pdf (3 pages, 141322 bytes).
+Output written on TheBTLModel_V2.pdf (3 pages, 139541 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

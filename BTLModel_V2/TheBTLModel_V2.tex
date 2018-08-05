@@ -22,11 +22,10 @@ Base on the standard BTL model:
 	p(i \prec j |u)=\frac{uj}{uj+ ui} 
 \end{align*}
 
- Suppose that there are K underlying aspects,for each pair, $p(<w,v>|g_k=1) = p^k(w\succ v) \times \Pi_{k'\neq k} p^{k'}(w \succeq v)$. then the probability of generating a session observation $d$ given the hidden aspect $a$ is defined as:
+ Suppose that there are K underlying aspects. for each pair, $p(<w,v>) = p^k(w\succ v) $. then the probability of generating a session observation $d$ is defined as:
 
 \begin{align}\label{equ:skyline}
-p(d|g,V,U)
-		=\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}^{g_k} { \frac{u_k w_k}{u_k w_k+u_k v_k}}^{1-g_k}]\\
+p(d|V,U)
 =\Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}]
 \end{align}
 

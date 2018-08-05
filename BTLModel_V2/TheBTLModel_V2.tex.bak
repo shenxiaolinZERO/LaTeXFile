@@ -15,14 +15,19 @@
 
 
 \section{The Standard BTL Model --}
-Base on the standard BTL model:
+The winning item $w\in W^d$ is a skyline object. To define the probability of skyline events, use the BTL model.
 
 \begin{align*}
 	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
-	p(i \prec j |u)=\frac{uj}{uj+ ui} 
+	p(i \prec j |u)=\frac{uj}{uj+ ui} \\
 \end{align*}
 
- Suppose that there are K underlying aspects,for each pair, $p(<w,v>|g_k=1) = p^k(w\succ v) \times \Pi_{k'\neq k} p^{k'}(w \succeq v)$. then the probability of generating a session observation $d$ given the hidden aspect $a$ is defined as:
+If the favorite aspect in current session is $k$, then following the definition of skyline object, $w\in W^d$ is superior in the favorite aspect,  and is not worse than other items in other aspects. $w\in W^d$ ranks higher than item $v\in L^d$ in the aspect $k$ is
+$$p^k(w \succ v)=\frac{u_k w_k}{u_k w_k+u_k v_k}$$
+ the probability of item $w\in W^d$ ranks not lower than item $v\in L^d$ in the aspect $k'!=k$. Therefore,
+ $$p^{k'}(w \succeq v)=1- p^{k'} (v \succ w) = 1-\frac{u_k v_k}{u_k w_k+u_k v_k}=\frac{u_k w_k}{u_k w_k+u_k v_k}$$.
+
+ Suppose $g$ is a $K-$dim vector, with one and only one component to be equal to $1$, for each pair, $p(<w,v>|g_k=1) = p^k(w\succ v) \times \Pi_{k'\neq k} p^{k'}(w \succeq v)$. then the probability of generating a session observation $d$ given the hidden aspect $a$ is defined as:
 
 \begin{align}\label{equ:skyline}
 p(d|g,V,U)

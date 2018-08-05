@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 AUG 2018 20:24
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  5 AUG 2018 20:32
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V2.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V2.tex
@@ -419,71 +419,30 @@ LaTeX Font Info:    ... okay on input line 12.
 \MPnumerator=\count104
 \makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks23
-)
-Overfull \hbox (2.62097pt too wide) in paragraph at lines 33--34
-[]\OT1/cmr/m/n/10 First, let's use $\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm
-/m/it/10 d; k; \OT1/cmr/m/n/10 [])$ to de-note the con-di-tion-al prob-a-bil-i
--ty $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[] \OT1/cmr/m/n/10 = 
-1\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 d; \OT1/cmr/m/n/10 [])$
- []
-
-
-Overfull \hbox (13.6787pt too wide) in paragraph at lines 42--43
-\OT1/cmr/m/n/10 In the E-step of $\OML/cmm/m/it/10 t\OMS/cmsy/m/n/10  $\OT1/cmr
-/m/n/10 th EM round, com-pute the ex-pec-ta-tion $\OML/cmm/m/it/10 Q\OT1/cmr/m/
-n/10 ([]) = \OML/cmm/m/it/10 E[] [] p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; G\OM
-S/cmsy/m/n/10 j\OT1/cmr/m/n/10 )$ 
- []
-
-[1
+) [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-Underfull \hbox (badness 10000) in paragraph at lines 68--71
-
- []
-
-
-Overfull \hbox (53.22195pt too wide) detected at line 75
-[] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
-
- []
-
-[3] (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V2.aux) ) 
+(I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V2.aux) ) 
 Here is how much of TeX's memory you used:
- 2730 strings out of 495354
- 33788 string characters out of 3183860
- 101120 words of memory out of 3000000
- 5868 multiletter control sequences out of 15000+200000
- 9023 words of font info for 33 fonts, out of 3000000 for 9000
+ 2725 strings out of 495354
+ 33724 string characters out of 3183860
+ 95104 words of memory out of 3000000
+ 5864 multiletter control sequences out of 15000+200000
+ 8408 words of font info for 31 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,9n,35p,563b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/CT
-EX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/CTEX/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/CTEX/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
-><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/CTEX/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/CTEX
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on TheBTLModel_V2.pdf (3 pages, 139541 bytes).
+ 42i,9n,35p,375b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/CTEX/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5
+.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr12.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/
+CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy7.pfb>
+Output written on TheBTLModel_V2.pdf (1 page, 100362 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
+ 46 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

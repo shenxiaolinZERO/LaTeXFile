@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  6 AUG 2018 21:07
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  6 AUG 2018 22:08
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V5.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V5.tex
@@ -426,27 +426,28 @@ Overfull \hbox (58.37898pt too wide) in paragraph at lines 61--61
 [] 
  []
 
-[2] (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V5.aux) ) 
+[2] [3] (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V5.aux) ) 
 Here is how much of TeX's memory you used:
  2725 strings out of 495354
  33726 string characters out of 3183860
- 102096 words of memory out of 3000000
+ 104096 words of memory out of 3000000
  5864 multiletter control sequences out of 15000+200000
  8715 words of font info for 32 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,9n,35p,375b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/CT
-EX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/CTEX/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
-><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/CTEX/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on TheBTLModel_V5.pdf (2 pages, 122592 bytes).
+<C
+:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/CTEX
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/CTEX/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
+CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on TheBTLModel_V5.pdf (3 pages, 131642 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

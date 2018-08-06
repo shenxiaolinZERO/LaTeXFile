@@ -60,7 +60,7 @@ l(\Theta)
 & =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ log \sum_k u_k w_k -log \sum_k u_k^t (w_k^t+v_k^t)]
 \end{align}
 
- we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta). $ 
+ we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta). $
 
 
 \subsection{For u}
@@ -70,8 +70,12 @@ By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have
 \frac{\partial \;l(\Theta) }{\partial \;u_k}
  &= \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{w_k}{\sum_k u_k w_k}-\frac{w_k+v_k}{\sum_k u_k^t(w_k^t +v_k^t)}) =0
 \end{align}
-$$ u_k = \frac{\sum_k u_k^t(w_k^t +v_k^t)}{w_k+v_k}$$
- 
+$$ \frac{w_k}{\sum_k u_k w_k}=\frac{w_k+v_k}{\sum_k u_k^t(w_k^t +v_k^t)}$$
+$$ \sum_k u_k w_k =\frac{ w_k \sum_k u_k^t(w_k^t +v_k^t)}{(w_k+v_k)} $$
+$$ u_k w_k  = \frac{ w_k \sum_k u_k^t(w_k^t +v_k^t)}{(w_k+v_k)} -\sum_{k' \neq k} u_{k'} w_{k'} $$
+
+$$ u_k = \frac{\sum_k u_k^t(w_k^t +v_k^t)}{w_k+v_k} - \frac{\sum_{k' \neq k} u_{k'} w_{k'}}{w_k}$$
+
 \subsection{For v}
 
 As for winner:\\

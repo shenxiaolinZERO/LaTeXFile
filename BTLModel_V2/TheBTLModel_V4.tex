@@ -1,0 +1,83 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\title{The BTL Model}
+\author{Xiaolin Shen}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The Standard BTL Model --}
+Base on the standard BTL model:
+
+\begin{align*}
+	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
+	p(i \prec j |u)=\frac{uj}{uj+ ui}
+\end{align*}
+
+ Suppose that there are K underlying aspects. for each pair, $p(<w,v>) = p^k(w\succ v) $. then the probability of generating a session observation $d$ is defined as:
+
+\begin{align}
+p(<w,v>|V,U)
+= \frac{\sum_{k=1}^{K} u_k w_k}{\sum_{k=1}^{K} u_k w_k+ \sum_{k=1}^{K} u_k v_k}
+\end{align}
+
+The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$
+\begin{align}
+L(\Theta)=p(D|\Theta)
+=\Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \frac{\sum_{k=1}^{K} u_k w_k}{\sum_{k=1}^{K} u_k w_k+ \sum_{k=1}^{K} u_k v_k}
+\end{align}
+
+Thus, the log likelihood is:
+\begin{align}
+l(\Theta) &= log \; L(\Theta) \\
+& =log \; \Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \frac{\sum_k u_k w_k}{\sum_k u_k w_k+ \sum_k u_k v_k}\\ \nonumber
+& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} log \;  \frac{\sum_k u_k w_k}{\sum_k u_k w_k+ \sum_k u_k v_k}\\ \nonumber
+& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [log \sum_k u_k w_k-log (\sum_k u_k w_k+ \sum_k u_k v_k)]
+\end{align}
+for the :
+\begin{equation*}
+\ln \frac{y}{x} \geq 1- \frac{x}{y}
+\end{equation*}\\
+we can derive a lower bound for the log-likelihood over the complete data, given the parameters learnt from previous round.
+hence, rewrite the log likelihood as follow.
+\begin{align}
+l(\Theta) 
+& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k w_k+ \sum_k u_k v_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t} + log \frac{\sum_k u_k w_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t}]
+\end{align}
+
+ we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta) $ by stochastic gradient ascent(SGA).
+
+
+\subsection{For u}
+$$u_j:= u_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;u_j},\; w.r.t\sum_k u_k=1 $$
+
+\begin{align}
+\frac{\partial \;l(\Theta) }{\partial \;u_j}
+ &= \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{w_j}{\sum_k u_k w_k}-\frac{w_j+v_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
+\end{align}
+
+\subsection{For v}
+
+$$v_j:= v_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;v_j}$$
+
+as for winner:
+\begin{align}
+\frac{\partial \;l(\Theta)}{\partial \;w_j}
+&=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{u_j}{\sum_k u_k w_k}-\frac{u_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
+\end{align}
+
+as for loser:
+\begin{align}
+\frac{\partial \;l(\Theta)}{\partial \;v_j}
+&=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(-\frac{u_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
+\end{align}
+
+\end{document}

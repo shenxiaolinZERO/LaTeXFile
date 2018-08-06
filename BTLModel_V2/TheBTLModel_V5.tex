@@ -49,15 +49,22 @@ for the :
 we can derive a lower bound for the log-likelihood over the complete data, given the parameters learnt from previous round.
 hence, rewrite the log likelihood as follow.
 \begin{align}
-l(\Theta) 
-& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k w_k+ \sum_k u_k v_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t} + log \frac{\sum_k u_k w_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t}]
+l(\Theta)
+& \geq\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k w_k+ \sum_k u_k v_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t} + log \frac{\sum_k u_k w_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t}]
 \end{align}
 
- we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta) $ by stochastic gradient ascent(SGA).
+Using the Jensen's inequality again, $l(\Theta)$ can be :
+\begin{align}
+l(\Theta)
+& \geq \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ 1-\frac{\sum_k u_k^t(w_k^t +v_k^t)}{\sum_k u_k^t(w_k^t +v_k^t)} +log \frac{\sum_k u_k w_k}{\sum_k u_k^t (w_k^t+v_k^t)}]\\
+& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ log \sum_k u_k w_k -log \sum_k u_k^t (w_k^t+v_k^t)]
+\end{align}
+
+ we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta). $ 
 
 
 \subsection{For u}
-$$u_j:= u_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;u_j},\; w.r.t\sum_k u_k=1 $$
+By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
 
 \begin{align}
 \frac{\partial \;l(\Theta) }{\partial \;u_j}
@@ -66,15 +73,15 @@ $$u_j:= u_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;u_j},\; w.r.t\sum_k
 
 \subsection{For v}
 
-$$v_j:= v_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;v_j}$$
-
 as for winner:
+By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
 \begin{align}
 \frac{\partial \;l(\Theta)}{\partial \;w_j}
 &=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{u_j}{\sum_k u_k w_k}-\frac{u_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
 \end{align}
 
 as for loser:
+By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
 \begin{align}
 \frac{\partial \;l(\Theta)}{\partial \;v_j}
 &=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(-\frac{u_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})

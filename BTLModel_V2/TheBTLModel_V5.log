@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  6 AUG 2018 19:36
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  6 AUG 2018 20:38
 entering extended mode
-**I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V4.tex
-(I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V4.tex
+**I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V5.tex
+(I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V5.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
 (C:\CTEX\MiKTeX\tex\latex\base\article.cls
@@ -392,7 +392,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V4.aux)
+(I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V5.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
@@ -422,11 +422,15 @@ LaTeX Font Info:    ... okay on input line 12.
 ) [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-[2] (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V4.aux) ) 
+Overfull \hbox (58.37898pt too wide) in paragraph at lines 61--61
+[] 
+ []
+
+[2] (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V5.aux) ) 
 Here is how much of TeX's memory you used:
  2725 strings out of 495354
  33726 string characters out of 3183860
- 99096 words of memory out of 3000000
+ 101096 words of memory out of 3000000
  5864 multiletter control sequences out of 15000+200000
  8715 words of font info for 32 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -440,7 +444,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public
 ><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/CTEX/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on TheBTLModel_V4.pdf (2 pages, 120333 bytes).
+Output written on TheBTLModel_V5.pdf (2 pages, 122494 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -67,24 +67,27 @@ l(\Theta)
 By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
 
 \begin{align}
-\frac{\partial \;l(\Theta) }{\partial \;u_j}
- &= \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{w_j}{\sum_k u_k w_k}-\frac{w_j+v_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
+\frac{\partial \;l(\Theta) }{\partial \;u_k}
+ &= \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{w_k}{\sum_k u_k w_k}-\frac{w_k+v_k}{\sum_k u_k^t(w_k^t +v_k^t)}) =0
 \end{align}
-
+$$ u_k = \frac{\sum_k u_k^t(w_k^t +v_k^t)}{w_k+v_k}$$
+ 
 \subsection{For v}
 
-as for winner:\\
-By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
+As for winner:\\
+By setting the partial derivative of $\frac{l(\Theta)}{\partial w_k}=0$, we have:
 \begin{align}
-\frac{\partial \;l(\Theta)}{\partial \;w_j}
-&=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{u_j}{\sum_k u_k w_k}-\frac{u_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
+\frac{\partial \;l(\Theta)}{\partial \;w_k}
+&=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{u_k}{\sum_k u_k w_k}-\frac{u_k}{\sum_k u_k^t(w_k^t +v_k^t)})=0
 \end{align}
+$$ w_k = \sum_k u_k^t(w_k^t +v_k^t) $$
 
-as for loser:\\
-By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
+As for loser:\\
+By setting the partial derivative of $\frac{l(\Theta)}{\partial v_k}=0$, we have:
 \begin{align}
-\frac{\partial \;l(\Theta)}{\partial \;v_j}
-&=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(-\frac{u_j}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t})
+\frac{\partial \;l(\Theta)}{\partial \;v_k}
+&=  \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(-\frac{u_k}{\sum_k u_k^t(w_k^t +v_k^t)})=0
 \end{align}
+$$ v_k =  $$
 
 \end{document}

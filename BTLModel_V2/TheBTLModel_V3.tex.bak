@@ -19,14 +19,14 @@ Base on the standard BTL model:
 
 \begin{align*}
 	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
-	p(i \prec j |u)=\frac{uj}{uj+ ui} 
+	p(i \prec j |u)=\frac{uj}{uj+ ui}
 \end{align*}
 
  Suppose that there are K underlying aspects. for each pair, $p(<w,v>) = p^k(w\succ v) $. then the probability of generating a session observation $d$ is defined as:
 
 \begin{align}
-p(<w,l>|V,U)
-= \Pi_{k=1}^{K}[ {\frac{u_k w_k}{u_k w_k+u_k v_k}}]
+p(<w,v>|V,U)
+= \frac{\sum_k u_k w_k}{u_k w_k+u_k v_k}
 \end{align}
 
 The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$
@@ -41,6 +41,22 @@ l(\Theta) &= log \; L(\Theta) \\
 & =log \; \Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[{\frac{u_k w_k}{u_k w_k+u_k v_k}}]\\ \nonumber
 & =\sum_{d \in D}  log \; \Pi_{w\in W^d, v\in L^d} \Pi_{k=1}^{K}[{\frac{u_k w_k}{u_k w_k+u_k v_k}}]
 \end{align}
-afterwards, 
+ we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta) $ by stochastic gradient ascent(SGA).
+
+\subsection{For u}
+$$u_j:= u_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;u_j}$$
+
+\begin{align}
+\frac{\partial \;l(\Theta) }{\partial \;u_j}
+ &= \sum_{d \in D}  log \; \Pi_{w\in W^d, v\in L^d} [\frac{uwv}{(uw+uv)^2}]
+\end{align}
+
+\subsection{For v}
+
+$$v_j:= v_j + \alpha \frac{\partial \;l(\Theta) }{\partial \;v_j}$$
+\begin{align}
+\frac{\partial \;l(\Theta) }{\partial \;v_j}
+&= \sum_{d \in D}  log \; \Pi_{w\in W^d, v\in L^d} [ \frac{u^2 v -  u^2 w}{(uw+uv)^2}]
+\end{align}
 
 \end{document}

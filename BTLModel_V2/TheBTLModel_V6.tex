@@ -1,0 +1,103 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\title{The BTL Model}
+\author{Xiaolin Shen}
+
+\begin{document}
+
+\maketitle
+
+
+\section{The Standard BTL Model --}
+Base on the standard BTL model:
+
+\begin{align*}
+	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
+	p(i \prec j |u)=\frac{uj}{uj+ ui}
+\end{align*}
+
+ Suppose that there are K underlying aspects. for each pair, $p(<w,v>) = p^k(w\succ v) $. then the probability of generating a session observation $d$ is defined as:
+
+\begin{align}
+p(<w,v>|V,U)
+= \frac{\sum_{k=1}^{K} u_k w_k}{\sum_{k=1}^{K} u_k w_k+ \sum_{k=1}^{K} u_k v_k}
+\end{align}
+
+The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$
+\begin{align}
+L(\Theta)=p(D|\Theta)
+=\Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \frac{\sum_{k=1}^{K} u_k w_k}{\sum_{k=1}^{K} u_k w_k+ \sum_{k=1}^{K} u_k v_k}
+\end{align}
+
+Thus, the log likelihood is:
+\begin{align}
+l(\Theta) &= \log \; L(\Theta) \\
+& =\log \; \Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \frac{\sum_k u_k w_k}{\sum_k u_k w_k+ \sum_k u_k v_k}\\ \nonumber
+& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} \log \;  \frac{\sum_k u_k w_k}{\sum_k u_k w_k+ \sum_k u_k v_k}\\ \nonumber
+& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [\log \sum_k u_k w_k-\log (\sum_k u_k w_k+ \sum_k u_k v_k)]
+\end{align}
+for the :
+\begin{equation*}
+\ln \frac{y}{x} \geq 1- \frac{x}{y}
+\end{equation*}\\
+we can derive a lower bound for the log-likelihood over the complete data, given the parameters learnt from previous round.
+hence, rewrite the log likelihood as follow.
+\begin{align}
+l(\Theta)
+& = \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k w_k+ \sum_k u_k v_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t} + \log \frac{\sum_k u_k w_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t}]\\
+& = \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ \log \sum_k u_k w_k -\log \sum_k u_k^t (w_k^t+v_k^t)]
+\end{align}
+
+Using the Jensen's inequality:
+$$ \log \sum_k u_kw_k \geq \sum_k u_k \log w_k,if \sum_k u_k=1. $$ $l(\Theta)$ can be :
+\begin{align}
+l(\Theta)
+& \geq \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ \sum_k u_k \log  w_k -\log \sum_k u_k^t (w_k^t+v_k^t)]
+\end{align}
+we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta). $
+
+\subsection{For u}
+
+
+By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
+
+\begin{align}
+\frac{\partial \;l(\Theta) }{\partial \;u_k}
+ &= \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{\sum_k w_k}{\sum_k u_k w_k}-\frac{\sum_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}) =0
+\end{align}
+$$ \frac{\sum_k w_k}{\sum_k u_k w_k}=\frac{\sum_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}$$
+$$ \sum_k u_k w_k =\frac{ \sum_k w_k \sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} $$
+$$ u_k w_k  = \frac{\sum_k w_k \sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} -\sum_{k' \neq k} u_{k'} w_{k'} $$
+
+$$ u_k = \frac{\sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} - \frac{\sum_{k' \neq k} u_{k'} w_{k'}}{w_k}$$
+
+Eventually,
+$$ u_k = \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{\sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} - \frac{\sum_{k' \neq k} u_{k'} w_{k'}}{w_k})$$
+
+\subsection{For v}
+
+As for winner:\\
+By setting the partial derivative of $\frac{l(\Theta)}{\partial w_k}=0$, we have:
+\begin{align}
+\frac{\partial \;l(\Theta)}{\partial \;w_k}
+&=  \Sigma_{d \in W(v)} \Sigma_{v'\in L^d}(\frac{\sum_k u_k}{w_k}-\frac{\sum_k u_k}{\sum_k u_k^t(w_k^t +v_k^{'t})})=0
+\end{align}
+$$ w_k =\Sigma_{d \in W(v)} \Sigma_{v'\in L^d} \sum_k u_k^t(w_k^t +v_k^{'t}) $$
+
+As for loser:\\
+By setting the partial derivative of $\frac{l(\Theta)}{\partial v_k}=0$, we have:
+\begin{align}
+\frac{\partial \;l(\Theta)}{\partial \;v_k}
+&=  \Sigma_{d \in L(v)} \Sigma_{v'\in W^d}(-\frac{\sum_k u_k}{\sum_k u_k^t(v_k^{'t} +v_k^t)})=0
+\end{align}
+$$ v_k =  $$
+Eventually,
+$$ v_k = \Sigma_{d \in W(v)} \Sigma_{v'\in L^d} \sum_k u_k^t(w_k^t +v_k^{'t}) $$
+
+\end{document}

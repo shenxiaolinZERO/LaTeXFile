@@ -14,53 +14,45 @@
 \maketitle
 
 
-\section{The Standard BTL Model --}
+\section{The Standard BTL Model}
+
+Suppose that there are $K$ underlying aspects, the latent preference vector for each user is denoted as $ u \in  R+ ^K$ , and $\sum_k u_k = 1$ , latent item feature vector $ i, j \in R + ^K$.
+
 Base on the standard BTL model:
 
 \begin{align*}
-	p(i \succ j |u)=\frac{ui}{ui+ uj} \\
-	p(i \prec j |u)=\frac{uj}{uj+ ui}
+	p(i \succ j |u)=\frac{u^{T}i}{u^{T}i+ u^{T}j} \\
+	p(i \prec j |u)=1-p(i \succ j |u)
 \end{align*}
 
- Suppose that there are K underlying aspects. for each pair, $p(<w,v>) = p^k(w\succ v) $. then the probability of generating a session observation $d$ is defined as:
-
+We use the maximal likelihood estimation. The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$, $\succ_d $ represents a pairwise ranking observation in a session $d$.
 \begin{align}
-p(<w,v>|V,U)
-= \frac{\sum_{k=1}^{K} u_k w_k}{\sum_{k=1}^{K} u_k w_k+ \sum_{k=1}^{K} u_k v_k}
+L(\Theta)
+= \Pi_{d \in D} \Pi_{i \succ_d j}\frac{\sum_{k=1}^{K} u_k i_k}{\sum_{k=1}^{K} u_k i_k+ \sum_{k=1}^{K} u_k j_k}
 \end{align}
 
-The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$
-\begin{align}
-L(\Theta)=p(D|\Theta)
-=\Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \frac{\sum_{k=1}^{K} u_k w_k}{\sum_{k=1}^{K} u_k w_k+ \sum_{k=1}^{K} u_k v_k}
-\end{align}
-
-Thus, the log likelihood is:
+Thus, the log likelihood and its lower bound is:
 \begin{align}
 l(\Theta) &= \log \; L(\Theta) \\
-& =\log \; \Pi_{d \in D} \Pi_{w\in W^d, v\in L^d} \frac{\sum_k u_k w_k}{\sum_k u_k w_k+ \sum_k u_k v_k}\\ \nonumber
-& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} \log \;  \frac{\sum_k u_k w_k}{\sum_k u_k w_k+ \sum_k u_k v_k}\\ \nonumber
-& =\Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [\log \sum_k u_k w_k-\log (\sum_k u_k w_k+ \sum_k u_k v_k)]
+& =\sum_{u} \sum_{d\in D_u} \sum_{i \succ_d j} \log \;  \frac{\sum_k u_k i_k}{\sum_k u_k i_k+ \sum_k u_k j_k}\\ \nonumber
+& \geq \sum_{u} \sum_{d\in D_u} \sum_{i \succ_d j}[1- \frac{\sum_k u_k i_k+ \sum_k u_k j_k}{\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t}+ \log \frac{\sum_k u_k i_k}{\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t}]
 \end{align}
-for the :
+where we apply 
 \begin{equation*}
 \ln \frac{y}{x} \geq 1- \frac{x}{y}
-\end{equation*}\\
-we can derive a lower bound for the log-likelihood over the complete data, given the parameters learnt from previous round.
-hence, rewrite the log likelihood as follow.
+\end{equation*}
+
+To maximize the lower-bound in $Equ.3$ we employ conjugate gradient method. 
+
+We first fix all $v$s, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$  denote $ c^t(i, j, d)=\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t  $ in the $t$-th round of the iteration, with respect to $\sum_k u_k=1$,we have
+
 \begin{align}
-l(\Theta)
-& = \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k w_k+ \sum_k u_k v_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t} + \log \frac{\sum_k u_k w_k}{\sum_k u_k^t w_k^t + \sum_k u_k^t v_k^t}]\\
-& = \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ \log \sum_k u_k w_k -\log \sum_k u_k^t (w_k^t+v_k^t)]
+\frac{\partial \;l(\Theta) }{\partial \;u_k}
+ &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{i_k}{u_k \sum_k i_k}-\frac{i_k+j_k}{c^t(i, j, d)}) =0
 \end{align}
 
-Using the Jensen's inequality:
-$$ \log \sum_k u_kw_k \geq \sum_k u_k \log w_k,if \sum_k u_k=1. $$ $l(\Theta)$ can be :
-\begin{align}
-l(\Theta)
-& \geq \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d} [1- \frac{\sum_k u_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}+ \sum_k u_k \log  w_k -\log \sum_k u_k^t (w_k^t+v_k^t)]
-\end{align}
-we want to choose $\{ U \; and \; V\}$ to maximize $ l(\Theta). $
+
+
 
 \subsection{For u}
 By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:

@@ -14,7 +14,12 @@
 \maketitle
 
 
-\section{The Standard BTL Model --}
+\section{The Standard BTL Model}
+
+Suppose that there are K underlying aspects, the latent preference vector for each user is denoted as u ∈ R + K , and P
+k
+u k = 1, latent item feature vector
+i, j ∈ R + K .
 Base on the standard BTL model:
 
 \begin{align*}

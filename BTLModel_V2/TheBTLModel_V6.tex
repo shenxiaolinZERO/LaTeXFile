@@ -87,18 +87,18 @@ As for winner:\\
 By setting the partial derivative of $\frac{l(\Theta)}{\partial w_k}=0$, we have:
 \begin{align}
 \frac{\partial \;l(\Theta)}{\partial \;w_k}
-&=  \Sigma_{d \in W(v)} \Sigma_{v'\in L^d}(\frac{\sum_k u_k}{w_k}-\frac{\sum_k u_k}{\sum_k u_k^t(w_k^t +v_k^{'t})})=0
+&=  \Sigma_{d \in W(v)} \Sigma_{v'\in L_d}(\frac{\sum_k u_k}{w_k}-\frac{\sum_k u_k}{\sum_k u_k^t(w_k^t +v_k^{'t})})=0
 \end{align}
-$$ w_k =\Sigma_{d \in W(v)} \Sigma_{v'\in L^d} \sum_k u_k^t(w_k^t +v_k^{'t}) $$
+$$ w_k =\Sigma_{d \in W(v)} \Sigma_{v'\in L_d} \sum_k u_k^t(w_k^t +v_k^{'t}) $$
 
 As for loser:\\
 By setting the partial derivative of $\frac{l(\Theta)}{\partial v_k}=0$, we have:
 \begin{align}
 \frac{\partial \;l(\Theta)}{\partial \;v_k}
-&=  \Sigma_{d \in L(v)} \Sigma_{v'\in W^d}(-\frac{\sum_k u_k}{\sum_k u_k^t(v_k^{'t} +v_k^t)})=0
+&=  \Sigma_{d \in L(v)} \Sigma_{v'\in W_d}(-\frac{\sum_k u_k}{\sum_k u_k^t(v_k^{'t} +v_k^t)})=0
 \end{align}
 $$ v_k =  $$
 Eventually,
-$$ v_k = \Sigma_{d \in W(v)} \Sigma_{v'\in L^d} \sum_k u_k^t(w_k^t +v_k^{'t}) $$
+$$ v_k = \Sigma_{d \in W(v)} \Sigma_{v'\in L_d} \sum_k u_k^t(w_k^t +v_k^{'t}) +\Sigma_{d \in L(v)} \Sigma_{v'\in W_d}()$$
 
 \end{document}

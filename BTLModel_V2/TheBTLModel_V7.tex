@@ -44,51 +44,24 @@ where we apply
 
 To maximize the lower-bound in $Equ.3$ we employ conjugate gradient method. 
 
-We first fix all $v$s, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$  denote $ c^t(i, j, d)=\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t  $ in the $t$-th round of the iteration, with respect to $\sum_k u_k=1$,we have
+We first fix all $v$s, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$  denote $ c^t(i, j, d)=\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t  $ in the $t$-th round of the iteration, with respect to $\sum_k u_k=1$,by applying the Lagrange, we have
 
 \begin{align}
 \frac{\partial \;l(\Theta) }{\partial \;u_k}
- &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{i_k}{u_k \sum_k i_k}-\frac{i_k+j_k}{c^t(i, j, d)}) =0
+ &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{i_k}{u_k \sum_k i_k}-\frac{i_k+j_k}{c^t(i, j, d)}) + \lambda =0\\
+ & \frac{\partial \;l(\Theta) }{\partial \lambda} = \sum_k u_k - 1 =0 \\
+ & u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k c^t(i, j, d)}{(i_k+j_k)\sum_k i_k} }{\sum_{k=1}^K \sum_{d\in D_u} \sum_{i \succ_d j}\frac{i_k c^t(i, j, d)}{(i_k+j_k)\sum_k i_k}}
 \end{align}
 
-
-
-
-\subsection{For u}
-By setting the partial derivative of $\frac{l(\Theta)}{\partial u_k}=0$, we have:
+Next we fix all $u$s, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \sum_k u_k \log i_k,\forall u_k \geq 0,\sum_k u_k=1 $.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.
 
 \begin{align}
-\frac{\partial \;l(\Theta) }{\partial \;u_k}
- &= \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{\sum_k w_k}{\sum_k u_k w_k}-\frac{\sum_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}) =0
+\frac{\partial \;l(\Theta) }{\partial \;v_k}
+ &=\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} \frac{u_k}{i_k} - \sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)} =0\\
+ & i_k =\frac{\sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)}}{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} u_k}
 \end{align}
-$$ \frac{\sum_k w_k}{\sum_k u_k w_k}=\frac{\sum_k(w_k+v_k)}{\sum_k u_k^t(w_k^t +v_k^t)}$$
-$$ \sum_k u_k w_k =\frac{ \sum_k w_k \sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} $$
-$$ u_k w_k  = \frac{\sum_k w_k \sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} -\sum_{k' \neq k} u_{k'} w_{k'} $$
 
-$$ u_k = \frac{\sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} - \frac{\sum_{k' \neq k} u_{k'} w_{k'}}{w_k}$$
 
-Eventually,
-$$ u_k = \Sigma_{d \in D} \Sigma_{w\in W^d, v\in L^d}(\frac{\sum_k u_k^t(w_k^t +v_k^t)}{\sum_k(w_k+v_k)} - \frac{\sum_{k' \neq k} u_{k'} w_{k'}}{w_k})$$
-Note that $\sum_k u_k=1$
 
-\subsection{For v}
-
-As for winner:\\
-By setting the partial derivative of $\frac{l(\Theta)}{\partial w_k}=0$, we have:
-\begin{align}
-\frac{\partial \;l(\Theta)}{\partial \;w_k}
-&=  \Sigma_{d \in W(v)} \Sigma_{v'\in L_d}(\frac{\sum_k u_k}{w_k}-\frac{\sum_k u_k}{\sum_k u_k^t(w_k^t +v_k^{'t})})=0
-\end{align}
-$$ w_k =\Sigma_{d \in W(v)} \Sigma_{v'\in L_d} \sum_k u_k^t(w_k^t +v_k^{'t}) $$
-
-As for loser:\\
-By setting the partial derivative of $\frac{l(\Theta)}{\partial v_k}=0$, we have:
-\begin{align}
-\frac{\partial \;l(\Theta)}{\partial \;v_k}
-&=  \Sigma_{d \in L(v)} \Sigma_{v'\in W_d}(-\frac{\sum_k u_k}{\sum_k u_k^t(v_k^{'t} +v_k^t)})=0
-\end{align}
-$$ v_k =  $$
-Eventually,
-$$ v_k = \Sigma_{d \in W(v)} \Sigma_{v'\in L_d} \sum_k u_k^t(w_k^t +v_k^{'t}) +\Sigma_{d \in L(v)} \Sigma_{v'\in W_d}()$$
 
 \end{document}

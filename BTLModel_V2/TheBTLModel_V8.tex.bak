@@ -16,7 +16,7 @@
 
 \section{The Standard BTL Model}
 
-Suppose that there are $K$ underlying aspects, the latent preference vector for each user is denoted as $ u \in  R+ ^K$ , and $\sum_k u_k = 1$ , latent item feature vector $ i, j \in R +^K$.
+Suppose that there are $K$ underlying aspects, the latent preference vector for each user is denoted as $ u \in  R+ ^K$ , and $\sum_k u_k = 1$ , latent item feature vector $ i, j \in \mathbb{R} + ^K$.
 
 Base on the standard BTL model:
 
@@ -25,7 +25,7 @@ Base on the standard BTL model:
 	p(i \prec j |u)=1-p(i \succ j |u)
 \end{align*}
 
-We use the maximal likelihood estimation. The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U \}$, $\succ_d $ represents a pairwise ranking observation in a session $d$.
+We use the maximal likelihood estimation. The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$, $\succ_d $ represents a pairwise ranking observation in a session $d$.
 \begin{align}
 L(\Theta)
 = \Pi_{d \in D} \Pi_{i \succ_d j}\frac{\sum_{k=1}^{K} u_k i_k}{\sum_{k=1}^{K} u_k i_k+ \sum_{k=1}^{K} u_k j_k}
@@ -44,7 +44,7 @@ where we apply
 
 To maximize the lower-bound in $Equ.3$ we employ conjugate gradient method.
 
-We first fix all latent vectors for the item $\footnote{We use the supscript $t$ for parameters in the $t^{th}$ round}$, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$  denote $ c^t(i, j, d)=\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t  $ in the $t$-th round of the iteration, with respect to $\sum_k u_k=1$,by applying the Lagrange, we have
+We first fix all $v$s, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$  denote $ c^t(i, j, d)=\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t  $ in the $t$-th round of the iteration, with respect to $\sum_k u_k=1$,by applying the Lagrange, we have
 
 \begin{align}
 \frac{\partial \;l(\Theta) }{\partial \;u_k}

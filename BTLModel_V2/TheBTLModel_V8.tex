@@ -64,7 +64,7 @@ Next we fix all user latent vectors, and again apply the Jensen’s inequality $
  & v_k =\frac{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} e_k^t(u)}{\sum_{u} \sum_{o \in O_u,i=v||j=v} \frac{u_k}{c^t(i, j, d)}}
 \end{align}
 
-Again we omit the constraint that $v_k \geq 0$ because that is satisfied automatically by the solution.
+Again we omit the constraint that $v_k \geq 0$ because that is satisfied automatically by the solution. We have to renormalize $\forall k, \sum_v v_k =1 $.
 
 
 

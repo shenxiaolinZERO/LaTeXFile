@@ -61,7 +61,7 @@ Next we fix all user latent vectors, and again apply the Jensen’s inequality $
 \begin{align}
 \frac{\partial \;l}{\partial \;v_k}
  &=\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} \frac{e_k^t(u)}{v_k} - \sum_{u} \sum_{o \in O_u,i=v||j=v} \frac{u_k}{c^t(i, j, d)} =0\\
- & v_k =\frac{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} u_k}{\sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)}}
+ & v_k =\frac{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} e_k^t(u)}{\sum_{u} \sum_{o \in O_u,i=v||j=v} \frac{u_k}{c^t(i, j, d)}}
 \end{align}
 
 

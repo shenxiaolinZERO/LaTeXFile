@@ -58,10 +58,9 @@ u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k}{\sum_k i_k} }{\sum_{k=
 
 Next we fix all user latent vectors, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \frac{\sum_k u_k \log i_k}{\sum_k u_k}+ \log \sum_k u_k,\forall u_k \geq 0$.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.  We first compute $e_k^t(u) = \frac{u_k^t}{\sum_k u_k^t}$
 
-
 \begin{align}
-\frac{\partial \;l(\Theta) }{\partial \;v_k}
- &=\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} \frac{u_k}{i_k} - \sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)} =0\\
+\frac{\partial \;l}{\partial \;v_k}
+ &=\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} \frac{e_k^t(u)}{v_k} - \sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)} =0\\
  & i_k =\frac{\sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)}}{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} u_k}
 \end{align}
 

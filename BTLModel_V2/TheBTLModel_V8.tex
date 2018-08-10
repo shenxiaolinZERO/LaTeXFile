@@ -56,7 +56,7 @@ u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k}{\sum_k i_k} }{\sum_{k=
 \end{align}
 
 
-Next we fix all user latent vectors, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \frac{\sum_k u_k \log i_k}{\sum_k u_k}+ \log \sum_k u_k,\forall u_k \geq 0$.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.
+Next we fix all user latent vectors, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \frac{\sum_k u_k \log i_k}{\sum_k u_k}+ \log \sum_k u_k,\forall u_k \geq 0$.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.  We first compute $e_k^t(u) = \frac{u_k^t}{\sum_k u_k^t}$
 
 
 \begin{align}

@@ -50,11 +50,13 @@ We first fix all latent vectors for the item $\footnote{We use the supscript $t$
  &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{f_k^t(d,i)}{u_k} - c_k^t(d,i,j) ) =0\\
 \end{align}
 
-Here we omit the constraint that $u_k \geq 0$ and hope that this constraint will
-be satisﬁed by the solution.
-
+Here we omit the constraint that $u_k \geq 0$ and hope that this constraint will be satisfied by the solution.
+\begin{align}
+u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k}{\sum_k i_k} }{\sum_{k=1}^K \sum_{d\in D_u} \sum_{i \succ_d j}\frac{i_k+j_k}{c^t(i,j,d)}}
+\end{align}
 
 Next we fix all $u$s, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \sum_k u_k \log i_k,\forall u_k \geq 0,\sum_k u_k=1 $.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.
+
 
 \begin{align}
 \frac{\partial \;l(\Theta) }{\partial \;v_k}

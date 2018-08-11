@@ -55,7 +55,7 @@ We first fix all latent vectors for the item $\footnote{We use the supscript $t$
 
 Here we omit the constraint that $u_k \geq 0$ and hope that this constraint will be satisfied by the solution.
 \begin{align}
-u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k}{\sum_k i_k} }{\sum_{d\in D_u} \sum_{i \succ_d j}\frac{i_k+j_k}{c^t(i,j,d)}}
+u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k}{\sum_k i_k} }{\sum_{d\in D_u} \sum_{i \succ_d j}\frac{i_k+j_k}{c^t(d,i,j)}}
 \end{align}
 
 

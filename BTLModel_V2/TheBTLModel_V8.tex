@@ -89,7 +89,7 @@ Again we omit the constraint that $v_k \geq 0$ because that is satisfied automat
         \For{$k=1;k\leq K,k++$}{
         $e_k^t(u)=\frac{u_k^t}{e^t(u)}$\;
         }
-        $v_k= \frac{\sum_u \sum_{o \in W(v) \&\& o\in O_u}  e_k^t(u)}{ \sum_u \sum_{o \in O_u, i=v\| j=v} \frac{u_k}{c^t(i,j,d)}}$\;
+        $v_k= \frac{\sum_u \sum_{o \in W(v) \&\& o\in O_u}  e_k^t(u)}{ \sum_u \sum_{o \in O_u, i=v\| j=v} \frac{u_k}{c^t(d,i,j)}}$\;
         }
 }
 \end{algorithm}

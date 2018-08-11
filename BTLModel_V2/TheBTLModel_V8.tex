@@ -7,6 +7,8 @@
 \usepackage{xcolor}
 \usepackage[ruled]{algorithm2e} 
 
+\newcommand{\R}{\mathbb{R}} 
+
 \title{The BTL Model}
 \author{Xiaolin Shen}
 
@@ -82,12 +84,12 @@ Again we omit the constraint that $v_k \geq 0$ because that is satisfied automat
         }
         $u_k^{t+1}= \frac{\sum_{d \in D_u} \sum_{i\succ_d j }  f_k^t(d,i) }{ \sum_{d \in D_u} \sum_{i\succ_d j } c_k^t(d,i,j)}$\;
         }
-    \For{$v\in U$}{
+    \For{$v\in V$}{
         $e^t(u)=\sum_k u_k^t$\;
         \For{$k=1;k\leq K,k++$}{
         $e_k^t(u)=\frac{u_k^t}{e^t(u)}$\;
         }
-        $v_k= \frac{ \sum_u \sum_{o \in O_u, i=v\| j=v} \frac{u_k}{c^t(i,j,d)}}{\sum_u \sum_{o \in W(v) \&\& o\in O_u}  e_k^t(u)}$\;
+        $v_k= \frac{\sum_u \sum_{o \in W(v) \&\& o\in O_u}  e_k^t(u)}{ \sum_u \sum_{o \in O_u, i=v\| j=v} \frac{u_k}{c^t(i,j,d)}}$\;
         }
 }
 \end{algorithm}

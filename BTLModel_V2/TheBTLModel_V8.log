@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  11 AUG 2018 15:45
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  11 AUG 2018 15:58
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V8.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V8.tex
@@ -443,18 +443,18 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algocf@algoframe=\box33
 \algocf@algobox=\box34
 ) (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V8.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 (C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -470,7 +470,7 @@ LaTeX Font Info:    ... okay on input line 13.
 \makeMPintoPDFobject=\count109
 \everyMPtoPDFconversion=\toks23
 )
-Overfull \hbox (3.28415pt too wide) in paragraph at lines 46--47
+Overfull \hbox (3.28415pt too wide) in paragraph at lines 48--49
 []\OT1/cmr/m/n/10 To max-i-mize the lower-bound in $\OML/cmm/m/it/10 Equ:\OT1/c
 mr/m/n/10 3$ we em-ploy con-ju-gate gra-di-en-t method. 
  []
@@ -480,10 +480,10 @@ mr/m/n/10 3$ we em-ploy con-ju-gate gra-di-en-t method.
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2]
 [3] (I:\GithubCodes\LaTeXFile\LaTeXFile\BTLModel_V2\TheBTLModel_V8.aux) ) 
 Here is how much of TeX's memory you used:
- 3879 strings out of 495354
- 48816 string characters out of 3183860
- 138392 words of memory out of 3000000
- 7002 multiletter control sequences out of 15000+200000
+ 3880 strings out of 495354
+ 48822 string characters out of 3183860
+ 138398 words of memory out of 3000000
+ 7003 multiletter control sequences out of 15000+200000
  9062 words of font info for 33 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,17n,35p,569b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -502,7 +502,7 @@ cmr6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/CTEX/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
 C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on TheBTLModel_V8.pdf (3 pages, 203039 bytes).
+Output written on TheBTLModel_V8.pdf (3 pages, 203043 bytes).
 PDF statistics:
  88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

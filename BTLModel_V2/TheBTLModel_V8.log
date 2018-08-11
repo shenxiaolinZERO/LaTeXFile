@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  10 AUG 2018 10:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  11 AUG 2018 15:31
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V8.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/BTLModel_V2/TheBTLModel_V8.tex
@@ -425,16 +425,6 @@ Overfull \hbox (3.28415pt too wide) in paragraph at lines 45--46
 mr/m/n/10 3$ we em-ploy con-ju-gate gra-di-en-t method. 
  []
 
-
-Overfull \hbox (37.9879pt too wide) in paragraph at lines 47--48
-$[] \OT1/cmr/m/n/10 + [] [][] \OML/cmm/m/it/10 i[]; \OMS/cmsy/m/n/10 8\OML/cmm/
-m/it/10 i[] \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :$ \OT1/cmr/m/
-n/10 Let's com-pute $\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 d; i
-; j\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 u[]i[] \OT1/cmr/m/n/10 + [][] \OML
-/cmm/m/it/10 u[]j[]$\OT1/cmr/m/n/10 ,$\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML
-/cmm/m/it/10 d; i; j\OT1/cmr/m/n/10 ) =$
- []
-
 [1
 
 {C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2]
@@ -446,7 +436,7 @@ Here is how much of TeX's memory you used:
  5863 multiletter control sequences out of 15000+200000
  8408 words of font info for 31 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,9n,35p,568b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,9n,35p,569b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/CTEX/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cmextra/
@@ -460,7 +450,7 @@ X/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/CTEX/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
 fb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on TheBTLModel_V8.pdf (2 pages, 167216 bytes).
+Output written on TheBTLModel_V8.pdf (2 pages, 167245 bytes).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

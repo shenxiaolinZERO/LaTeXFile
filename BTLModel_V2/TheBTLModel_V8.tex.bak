@@ -44,7 +44,7 @@ where we apply
 
 To maximize the lower-bound in $Equ.3$ we employ conjugate gradient method.
 
-We first fix all latent vectors for the item $\footnote{We use the supscript $t$ for parameters in the $t^{th}$ round}$, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$ Let's compute $c^t(d,i,j)=\sum_k u_k^ti_k^t + \sum_k u_k^tj_k^t$,$c_k^t(d,i,j)=\frac{i_k^t + j_k^t}{c^t(d,i,j)}$, and $ f_k^t(d,i)=\frac{i_k^t}{\sum_k i_k^t} $ for all pairwise ranking observations in $d$ using the $t$-th round parameters, we have  
+We first fix all latent vectors for the item $\footnote{We use the supscript $t$ for parameters in the $t^{th}$ round}$, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$ Let's compute $c^t(d,i,j)=\sum_k u_k^ti_k^t + \sum_k u_k^tj_k^t$, $c_k^t(d,i,j)=\frac{i_k^t + j_k^t}{c^t(d,i,j)}$, and $ f_k^t(d,i)=\frac{i_k^t}{\sum_k i_k^t} $ for all pairwise ranking observations in $d$ using the $t$-th round parameters, we have  
 \begin{align}
 \frac{\partial \;l }{\partial \;u_k}
  &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{f_k^t(d,i)}{u_k} - c_k^t(d,i,j) ) =0\\
@@ -64,7 +64,7 @@ Next we fix all user latent vectors, and again apply the Jensen’s inequality $
  & v_k =\frac{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} e_k^t(u)}{\sum_{u} \sum_{o \in O_u,i=v||j=v} \frac{u_k}{c^t(i, j, d)}}
 \end{align}
 
-Again we omit the constraint that $v_k \geq 0$ because that is satisfied automatically by the solution. We have to renormalize $\forall k,
+Again we omit the constraint that $v_k \geq 0$ because that is satisfied automatically by the solution. We have to renormalize $\forall k, \sum_v v_k =1 $.
 
 
 

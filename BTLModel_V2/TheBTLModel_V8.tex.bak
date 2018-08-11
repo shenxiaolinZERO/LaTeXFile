@@ -16,7 +16,7 @@
 
 \section{The Standard BTL Model}
 
-Suppose that there are $K$ underlying aspects, the latent preference vector for each user is denoted as $ u \in  R+ ^K$ , and $\sum_k u_k = 1$ , latent item feature vector $ i, j \in \mathbb{R} + ^K$.
+Suppose that there are $K$ underlying aspects, the latent preference vector for each user is denoted as $ u \in  R+ ^K$ , and $\sum_k u_k = 1$ , latent item feature vector $ i, j \in R +^K$.
 
 Base on the standard BTL model:
 
@@ -25,7 +25,7 @@ Base on the standard BTL model:
 	p(i \prec j |u)=1-p(i \succ j |u)
 \end{align*}
 
-We use the maximal likelihood estimation. The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U ) \}$, $\succ_d $ represents a pairwise ranking observation in a session $d$.
+We use the maximal likelihood estimation. The likelihood function can be written as follows. The model parameters are denoted as $ \Theta = \{ v \in V ,u \in U \}$, $\succ_d $ represents a pairwise ranking observation in a session $d$.
 \begin{align}
 L(\Theta)
 = \Pi_{d \in D} \Pi_{i \succ_d j}\frac{\sum_{k=1}^{K} u_k i_k}{\sum_{k=1}^{K} u_k i_k+ \sum_{k=1}^{K} u_k j_k}
@@ -44,23 +44,27 @@ where we apply
 
 To maximize the lower-bound in $Equ.3$ we employ conjugate gradient method.
 
-We first fix all $v$s, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$  denote $ c^t(i, j, d)=\sum_k u_k^t i_k^t+ \sum_k u_k^t j_k^t  $ in the $t$-th round of the iteration, with respect to $\sum_k u_k=1$,by applying the Lagrange, we have
-
+We first fix all latent vectors for the item $\footnote{We use the supscript $t$ for parameters in the $t^{th}$ round}$, and apply  $ \log \sum_k u_k i_k \geq \frac{\sum_k i_k \log u_k}{\sum_k i_k} + \log \sum_k i_k,\forall i_k \geq 0.$ Let's compute $c^t(d,i,j)=\sum_k u_k^ti_k^t + \sum_k u_k^tj_k^t$,$c_k^t(d,i,j)=\frac{i_k^t + j_k^t}{c^t(d,i,j)}$, and $ f_k^t(d,i)=\frac{i_k^t}{\sum_k i_k^t} $ for all pairwise ranking observations in $d$ using the $t$-th round parameters, we have  
 \begin{align}
-\frac{\partial \;l(\Theta) }{\partial \;u_k}
- &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{i_k}{u_k \sum_k i_k}-\frac{i_k+j_k}{c^t(i, j, d)}) + \lambda =0\\
- & \frac{\partial \;l(\Theta) }{\partial \lambda} = \sum_k u_k - 1 =0 \\
- & u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k c^t(i, j, d)}{(i_k+j_k)\sum_k i_k} }{\sum_{k=1}^K \sum_{d\in D_u} \sum_{i \succ_d j}\frac{i_k c^t(i, j, d)}{(i_k+j_k)\sum_k i_k}}
+\frac{\partial \;l }{\partial \;u_k}
+ &=\sum_{d\in D_u} \sum_{i \succ_d j} (\frac{f_k^t(d,i)}{u_k} - c_k^t(d,i,j) ) =0\\
 \end{align}
 
-Next we fix all $u$s, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \sum_k u_k \log i_k,\forall u_k \geq 0,\sum_k u_k=1 $.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.
-
+Here we omit the constraint that $u_k \geq 0$ and hope that this constraint will be satisfied by the solution.
 \begin{align}
-\frac{\partial \;l(\Theta) }{\partial \;v_k}
- &=\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} \frac{u_k}{i_k} - \sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)} =0\\
- & i_k =\frac{\sum_{u} \sum_{o \in O_u} \frac{u_k}{c^t(i, j, d)}}{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} u_k}
+u_k = \frac{\sum_{d\in D_u} \sum_{i \succ_d j} \frac{i_k}{\sum_k i_k} }{\sum_{k=1}^K \sum_{d\in D_u} \sum_{i \succ_d j}\frac{i_k+j_k}{c^t(i,j,d)}}
 \end{align}
 
+
+Next we fix all user latent vectors, and again apply the Jensen’s inequality $\log \sum_k u_k i_k \geq \frac{\sum_k u_k \log i_k}{\sum_k u_k}+ \log \sum_k u_k,\forall u_k \geq 0$.  For convenience, we use $v$  to denote a arbitral item, and $O_u$  is the set of all observed pairwise ranking of user u, if $ v \succ j $is the winning item then we say $o \in W(v)$.  We first compute $e_k^t(u) = \frac{u_k^t}{\sum_k u_k^t}$
+
+\begin{align}
+\frac{\partial \;l}{\partial \;v_k}
+ &=\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} \frac{e_k^t(u)}{v_k} - \sum_{u} \sum_{o \in O_u,i=v||j=v} \frac{u_k}{c^t(i, j, d)} =0\\
+ & v_k =\frac{\sum_{u} \sum_{o \in W(v) \&\& o \in O_u} e_k^t(u)}{\sum_{u} \sum_{o \in O_u,i=v||j=v} \frac{u_k}{c^t(i, j, d)}}
+\end{align}
+
+Again we omit the constraint that $v_k \geq 0$ because that is satisfied automatically by the solution. We have to renormalize $\forall k, \sum_v v_k =1 $.
 
 
 

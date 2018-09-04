@@ -210,4 +210,52 @@ Dataset & Method & MAP & NDCG & Prec & Recall & MRR \\\hline
 \end{table}%
 
 
+\begin{table}[htp]
+\caption{Scale of strength parameter $\theta$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Method & Movielens & FilmTrust & CiaoDVD \\\hline
+MF-NCR & & & \\\hline
+AMF-NCR & & & \\\hline
+LLORMA-NCR & & & \\\hline
+BTL-NCR & & & \\\hline
+BPR-NCR & & & \\\hline
+FSBPR-NCR & & & \\\hline
+LCR-NCR & & & \\\hline
+Method & Tmall-single & Tmall-hybrid & Yoochoose \\\hline
+BTL-NCR & & & \\\hline
+BPR-NCR & & & \\\hline
+FSBPR-NCR & & & \\\hline
+LCR-NCR & & & \\\hline
+\end{tabular}
+\end{center}
+\label{tab:theta}
+\end{table}%
+
+
+\begin{table}[htp]
+\tiny
+\caption{Comparative rating prediction performance}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Dataset & Method & AUC & NDCG & RMSE & MAE & MRR \\\hline
+\multirow{2}{*}{Movielens} & MF-biased &  & 	 &	 &	 &	
+ \\\cline{2-7}
+ & MF-NCR-b & & 	 &	 &	 &	
+ \\\hline
+\multirow{2}{*}{Filmtrust} & MF-biased & &	 &	 	&  &	
+ \\\cline{2-7}
+ & MF-NCR-b &  & 	 &	 & 	 & 	
+\\\hline
+ \multirow{2}{*}{CiaoDVD} & MF-biased & & 	 &	 & 	 	 &
+\\\cline{2-7}
+ & MF-NCR-b & & 	 &	 &	 	&
+ \\\hline
+\end{tabular}
+\end{center}
+\label{tab:biasresult}
+\end{table}%
+
 \end{document}

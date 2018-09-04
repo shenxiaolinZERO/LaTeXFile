@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  4 SEP 2018 09:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2017.7.4)  4 SEP 2018 09:35
 entering extended mode
 **I:/GithubCodes/LaTeXFile/LaTeXFile/table.tex
 (I:/GithubCodes/LaTeXFile/LaTeXFile/table.tex
@@ -192,25 +192,27 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
  [1
 
-{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2] [3]
+{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2] [3] [4]
+
 (I:\GithubCodes\LaTeXFile\LaTeXFile\table.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1965 strings out of 495354
- 24181 string characters out of 3183860
- 119188 words of memory out of 3000000
- 5115 multiletter control sequences out of 15000+200000
+ 1967 strings out of 495354
+ 24208 string characters out of 3183860
+ 127204 words of memory out of 3000000
+ 5117 multiletter control sequences out of 15000+200000
  21709 words of font info for 55 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  27i,9n,22p,289b,266s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/CTEX/MiKTeX/fonts/type1/u
-rw/times/utmb8a.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on table.pdf (3 pages, 39391 bytes).
+{C:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/CTEX/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><
+C:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+Output written on table.pdf (4 pages, 48705 bytes).
 PDF statistics:
- 21 PDF objects out of 1000 (max. 8388607)
+ 28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

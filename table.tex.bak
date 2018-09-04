@@ -81,10 +81,12 @@ Dataset & Method & AUC & NDCG & RMSE & MAE & MRR \\\hline
 \label{tab:ratingresult}
 \end{table}%
 
-\subsection{Ranking Performance for Implicit Feedback---nonono }
+\subsection{Ranking Performance for Implicit Feedback }
+
+
 \begin{table}[htp]
 \tiny
-\caption{Comparative ranking prediction performance with implicit feedback}
+\caption{Comparative ranking prediction performance with implicit feedback|nonono}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -128,24 +130,24 @@ Dataset & Method & MAP & NDCG & Prec & Recall & MRR \\\hline
 Dataset & Method & MAP & NDCG & Precision & AUC & MRR \\\hline
 \multirow{6}{*}{Movielens} & BTL &0.7654 &0.5070 &0.5307 & &0.7654 \\\cline{2-7}
  & BTL-NCR &0.8440 &0.5425 &0.6879 & &0.8440 \\\cline{2-7}
- & BPR &0.8478 &0.5443 &0.6956 & &0.8478 \\\cline{2-7}
- & BPR-NCR &0.8623 &0.5508 &0.7246 & &0.8623 \\\cline{2-7}
+ & BPR &0.8478 &0.5443 &0.6956 &0.7002 &0.8478 \\\cline{2-7}
+ & BPR-NCR &0.8623 &0.5508 &0.7246 &0.7246 &0.8623 \\\cline{2-7}
  & FSBPR &0.7474 &0.4993 &0.4968 & &0.7484 \\\cline{2-7}
   & FSBPR-NCR &0.7964 &0.5205 &0.5908 & &0.7954 \\\cline{2-7}
    & LCR & & & & & \\\cline{2-7}
  & LCR-NCR & & & & & \\\hline
 \multirow{6}{*}{Filmtrust} & BTL &0.7674 &0.5070 &0.5307 & &0.7654 \\\cline{2-7}
  & BTL-NCR &0.8182 &0.5312 &0.6379 & &0.8190 \\\cline{2-7}
- & BPR &0.7825 &0.5147 &0.5649 & &0.7825  \\\cline{2-7}
- & BPR-NCR &0.8365 &0.5392 &0.6730 & &0.8365 \\\cline{2-7}
+ & BPR &0.7825 &0.5147 &0.5649 &0.7825 &0.7825  \\\cline{2-7}
+ & BPR-NCR &0.8365 &0.5392 &0.6730 &0.6728 &0.8365 \\\cline{2-7}
  & FSBPR &0.7484 &0.4996 &0.4980 & &0.7490 \\\cline{2-7}
   & FSBPR-NCR &0.7956 &0.5205 &0.5908 & &0.7954 \\\cline{2-7}
    & LCR & & & & & \\\cline{2-7}
  & LCR-NCR & & & & & \\\hline
 \multirow{6}{*}{CiaoDVD} & BTL &0.8009 &0.5230 &0.6016 & &0.8008 \\\cline{2-7}
  & BTL-NCR &0.9394 &0.5857 &0.8787 & &0.9393 \\\cline{2-7}
- & BPR &0.7241 &0.4883 &0.4481 & &0.7240 \\\cline{2-7}
- & BPR-NCR &0.9537 &0.5922 &0.9074 & &0.9537 \\\cline{2-7}
+ & BPR &0.7241 &0.4883 &0.4481 &0.6380 &0.7240 \\\cline{2-7}
+ & BPR-NCR &0.9537 &0.5922 &0.9074 &0.8982 &0.9537 \\\cline{2-7}
  & FSBPR &0.7501 &0.5001 &0.5004 & &0.7502 \\\cline{2-7}
   & FSBPR-NCR &0.8906 &0.5637 &0.7815 & &0.8908 \\\cline{2-7}
    & LCR & & & & & \\\cline{2-7}
@@ -207,5 +209,67 @@ Dataset & Method & MAP & NDCG & Prec & Recall & MRR \\\hline
 \label{tab:ratingresult}
 \end{table}%
 
+
+
+
+
+\begin{table}[htp]
+\tiny
+\caption{Comparative rating prediction performance}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Dataset & Method & AUC & NDCG & RMSE & MAE & MRR \\\hline
+\multirow{2}{*}{Movielens} & MF-biased &  & 	 &	 &	 &	
+ \\\cline{2-7}
+ & MF-NCR-b & & 	 &	 &	 &	
+ \\\hline
+\multirow{2}{*}{Filmtrust} & MF-biased & &	 &	 	&  &	
+ \\\cline{2-7}
+ & MF-NCR-b &  & 	 &	 & 	 & 	
+\\\hline
+ \multirow{2}{*}{CiaoDVD} & MF-biased & & 	 &	 & 	 	 &
+\\\cline{2-7}
+ & MF-NCR-b & & 	 &	 &	 	&
+ \\\hline
+\end{tabular}
+\end{center}
+\label{tab:biasresult}
+\end{table}%
+
+\begin{table}[htp]
+\caption{Scale of strength parameter $\theta$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Method & Movielens & FilmTrust & CiaoDVD \\\hline
+MF-NCR & & & \\\hline
+AMF-NCR & & & \\\hline
+LLORMA-NCR & & & \\\hline
+BTL-NCR & & & \\\hline
+BPR-NCR & & & \\\hline
+FSBPR-NCR & & & \\\hline
+LCR-NCR & & & \\\hline
+Method & Tmall-single & Tmall-hybrid & Yoochoose \\\hline
+BTL-NCR & & & \\\hline
+BPR-NCR & & & \\\hline
+FSBPR-NCR & & & \\\hline
+LCR-NCR & & & \\\hline
+\end{tabular}
+\end{center}
+\label{tab:theta}
+\end{table}%
+
+\begin{table}[htp]
+\caption{Scale of user-defined aspect-specific threshold $\mathbf{b}_{u,k}$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Method & Movielens & FilmTrust & CiaoDVD \\\hline
+$std(\mathbf{b}_{u,k})$ & & & \\\hline
+\end{tabular}
+\end{center}
+\label{tab:bias}
+\end{table}%
 
 \end{document}

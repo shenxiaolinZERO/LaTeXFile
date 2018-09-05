@@ -237,23 +237,24 @@ Dataset & Method & AUC & NDCG & RMSE & MAE & MRR \\\hline
 \label{tab:biasresult}
 \end{table}%
 
+
 \begin{table}[htp]
 \caption{Scale of strength parameter $\theta$}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Method & Movielens & FilmTrust & CiaoDVD \\\hline
-MF-NCR & & & \\\hline
-AMF-NCR & & & \\\hline
+MF-NCR &0.61 $\pm$ 0.11 &0.67 $\pm$ 0.02 &0.77$\pm$ 0.05 \\\hline
+AMF-NCR &1.62 $\pm$ 0.04 &1.58$\pm$0.13 &1.68$\pm$0.09 \\\hline
 LLORMA-NCR & & & \\\hline
-BTL-NCR & & & \\\hline
-BPR-NCR & & & \\\hline
-FSBPR-NCR & & & \\\hline
+BTL-NCR &1.57$\pm$0.22 &1.60$\pm$0.34 &1.37$\pm$0.32 \\\hline
+BPR-NCR &0.05$\pm$0.0001 &0.05$\pm$0.001 &0.15$\pm$0.002 \\\hline
+FSBPR-NCR &1.88$\pm$0.14 &1.89$\pm$0.11 &2.92$\pm$0.54 \\\hline
 LCR-NCR & & & \\\hline
 Method & Tmall-single & Tmall-hybrid & Yoochoose \\\hline
-BTL-NCR & & & \\\hline
-BPR-NCR & & & \\\hline
-FSBPR-NCR & & & \\\hline
+BTL-NCR &5.14$\pm$1.12 &5.10$\pm$0.69 &4.62$\pm$0.53 \\\hline
+BPR-NCR &0.13$\pm$0.01 &0.86$\pm$0.07 &0.06$\pm$0.001 \\\hline
+FSBPR-NCR &5.01$\pm$1.07 &4.92$\pm$0.97 &4.36$\pm$0.94 \\\hline
 LCR-NCR & & & \\\hline
 \end{tabular}
 \end{center}

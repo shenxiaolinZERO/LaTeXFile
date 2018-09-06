@@ -222,11 +222,11 @@ Dataset & Method & MAP & NDCG & Prec & Recall & MRR \\\hline
 Dataset & Method & AUC & NDCG & RMSE & MAE & MRR \\\hline
 \multirow{2}{*}{Movielens} & MF-biased &  & 	 &	 &	 &	
  \\\cline{2-7}
- & MF-NCR-b & & 	 &	 &	 &	
+ & MF-NCR-b & & & &	 &	
  \\\hline
-\multirow{2}{*}{Filmtrust} & MF-biased & &	 &	 	&  &	
+\multirow{2}{*}{Filmtrust} & MF-biased & &0.3102	 &	 	&  &	
  \\\cline{2-7}
- & MF-NCR-b &  & 	 &	 & 	 & 	
+ & MF-NCR-b &  & &	 & 	 & 	
 \\\hline
  \multirow{2}{*}{CiaoDVD} & MF-biased & & 	 &	 & 	 	 &
 \\\cline{2-7}
@@ -272,5 +272,57 @@ $std(\mathbf{b}_{u,k})$ & & & \\\hline
 \end{center}
 \label{tab:bias}
 \end{table}%
+
+
+20180906:
+\begin{table}[htp]
+\tiny
+\caption{Comparative performance for compensatory and non-compensatory rating prediction models, `Improve' indicates the improvements of non-compensatory versions relative to the original models.}
+\begin{center}
+\begin{tabular}{p{0.4cm}<{\centering}|p{1.2cm}<{\centering} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm}}
+\hline
+Dataset	& Method	& AUC	& Improve&	NDCG&	Improve&	MRR	&Improve\\\hline
+\multirow{6}{*}{\shortstack{Movie\\lens}} &	MF	& $0.6661$ 	& &	$0.6856$ 	&&	$0.8391$ 	&\\
+%\cline{2-8}
+	&MF-N	&$0.6990$ &	$4.94\%$	&$0.7107 $	&$3.67\%$	&$0.8745$ &	$4.23\%$	\\
+%	\cline{2-8}
+	&AMF&	$0.6043$ 	&&	$0.5003$ 	&&	$0.7506$ &\\
+%	\cline{2-8}
+	&AMF-N	&$0.6129$ 	&$1.43\%$	&$0.5027$ &	$0.48\%$	&$0.7559$ 	&$0.71\%$	\\
+%	\cline{2-8}
+	&LLORMA		&$0.6453$&	&$0.8990$ 	&&	$0.5761$&\\	
+%	\cline{2-8}
+	&LLORMA-N	&$0.6516$	&$0.98\%$	&	$0.8994$ 	&$0.04\%$	&$0.5761$ 	&$0.01\%$	\\
+	\hline
+\multirow{6}{*}{\shortstack{Film\\trust}}	&MF	&$0.6056 $	&&	$0.5240$&&		$0.7522 $	&	\\
+%\cline{2-8}
+	&MF-N&	$0.6166$ 	&$1.81\%$	&$0.5252$ 	&$0.24\%$	&$0.7624$ 	&$1.35\%$\\
+%	\cline{2-8}
+	&AMF	&$0.6244 $	&&	$0.5055 $&&		$0.7622 $	&	\\
+%	\cline{2-8}
+	&AMF-N	&$0.6436$ 	&$3.07\%$	&$0.5098$ 	&$0.85\%$	&$0.7717$ 	&$1.24\%$	\\
+%	\cline{2-8}
+	&LLORMA	&$0.5336$& &		$0.8672$ 	&&	$0.6481$ 	&	\\
+%	\cline{2-8}
+	&LLORMA-N		&$0.5517$	&$3.39\%$ &	$0.8684$ &	$0.14\%$	&$0.6533$ 	&$0.80\%$	\\
+	\hline
+\multirow{6}{*}{\shortstack{Ciao\\DVD}}	&MF	&$0.5915$ 	&&	$0.6497$&	&	$0.8427$ &	\\
+%\cline{2-8}
+	&MF-N	&$0.6948$ 	&$17.45\%$	&$0.6872$ 	&$5.77\%$	&$0.8969 $	&$6.43\%$	\\
+%	\cline{2-8}
+	&AMF	&$0.6211$ 	&&	$0.5048$ 	&&	$0.7607$ 	&	\\
+%	\cline{2-8}
+	&AMF-N	&$0.7993 $&	$28.69\%$	&$0.5657$ 	&$12.05\%$	&$0.8950$ 	&$17.67\%$	\\
+%	\cline{2-8}
+	&LLORMA		&$0.6986$&	&$0.7827 $		&&$0.4883$ 		& 	\\
+%	\cline{2-8}
+	&LLORMA-N	&$0.6998$	&$0.17\%$&	$0.7838$ 	&$0.14\%$	&$0.4904 $	&$0.43\%$	\\
+	\hline
+	\end{tabular}
+\end{center}
+\label{tab:ratingresult}
+\end{table}%
+
+
 
 \end{document}

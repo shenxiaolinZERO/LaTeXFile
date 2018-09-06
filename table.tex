@@ -4,10 +4,19 @@
 \usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{array}
 \newcommand{\Ep}{\mathbb{E}}
 \newcommand{\Real}{\mathcal{R}}
 \newcommand{\Rating}{\mathbf{X}}
 \newcommand{\Loss}{\mathcal{L}}
+%\usepackage{aaai19}  %Required
+\usepackage{times}  %Required
+\usepackage{helvet}  %Required
+\usepackage{courier}  %Required
+\usepackage{url}  %Required
+\usepackage{graphicx}  %Required
+
 
 \usepackage{times}  %Required
 \usepackage{helvet}  %Required
@@ -272,5 +281,183 @@ $std(\mathbf{b}_{u,k})$ & & & \\\hline
 \end{center}
 \label{tab:bias}
 \end{table}%
+
+
+20180906:
+\begin{table}[htp]
+\tiny
+\caption{Comparative performance for compensatory and non-compensatory rating prediction models, `Improve' indicates the improvements of non-compensatory versions relative to the original models.}
+\begin{center}
+\begin{tabular}{p{0.4cm}<{\centering}|p{1.2cm}<{\centering} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm}}
+\hline
+Dataset	& Method	& AUC	& Improve&	NDCG&	Improve&	MRR	&Improve\\\hline
+\multirow{6}{*}{\shortstack{Movie\\lens}} &	MF	& $0.6661$ 	& &	$0.6856$ 	&&	$0.8391$ 	&\\
+%\cline{2-8}
+	&MF-N	&$0.6990$ &	$4.94\%$	&$0.7107 $	&$3.67\%$	&$0.8745$ &	$4.23\%$	\\
+%	\cline{2-8}
+	&AMF&	$0.6043$ 	&&	$0.5003$ 	&&	$0.7506$ &\\
+%	\cline{2-8}
+	&AMF-N	&$0.6129$ 	&$1.43\%$	&$0.5027$ &	$0.48\%$	&$0.7559$ 	&$0.71\%$	\\
+%	\cline{2-8}
+	&LLORMA		&$0.6453$&	&$0.8990$ 	&&	$0.5761$&\\	
+%	\cline{2-8}
+	&LLORMA-N	&$0.6516$	&$0.98\%$	&	$0.8994$ 	&$0.04\%$	&$0.5761$ 	&$0.01\%$	\\
+	\hline
+\multirow{6}{*}{\shortstack{Film\\trust}}	&MF	&$0.6056 $	&&	$0.5240$&&		$0.7522 $	&	\\
+%\cline{2-8}
+	&MF-N&	$0.6166$ 	&$1.81\%$	&$0.5252$ 	&$0.24\%$	&$0.7624$ 	&$1.35\%$\\
+%	\cline{2-8}
+	&AMF	&$0.6244 $	&&	$0.5055 $&&		$0.7622 $	&	\\
+%	\cline{2-8}
+	&AMF-N	&$0.6436$ 	&$3.07\%$	&$0.5098$ 	&$0.85\%$	&$0.7717$ 	&$1.24\%$	\\
+%	\cline{2-8}
+	&LLORMA	&$0.5336$& &		$0.8672$ 	&&	$0.6481$ 	&	\\
+%	\cline{2-8}
+	&LLORMA-N		&$0.5517$	&$3.39\%$ &	$0.8684$ &	$0.14\%$	&$0.6533$ 	&$0.80\%$	\\
+	\hline
+\multirow{6}{*}{\shortstack{Ciao\\DVD}}	&MF	&$0.5915$ 	&&	$0.6497$&	&	$0.8427$ &	\\
+%\cline{2-8}
+	&MF-N	&$0.6948$ 	&$17.45\%$	&$0.6872$ 	&$5.77\%$	&$0.8969 $	&$6.43\%$	\\
+%	\cline{2-8}
+	&AMF	&$0.6211$ 	&&	$0.5048$ 	&&	$0.7607$ 	&	\\
+%	\cline{2-8}
+	&AMF-N	&$0.7993 $&	$28.69\%$	&$0.5657$ 	&$12.05\%$	&$0.8950$ 	&$17.67\%$	\\
+%	\cline{2-8}
+	&LLORMA		&$0.6986$&	&$0.7827 $		&&$0.4883$ 		& 	\\
+%	\cline{2-8}
+	&LLORMA-N	&$0.6998$	&$0.17\%$&	$0.7838$ 	&$0.14\%$	&$0.4904 $	&$0.43\%$	\\
+	\hline
+	\end{tabular}
+\end{center}
+\label{tab:ratingresult}
+\end{table}%
+
+Table 5: ranking -Movielens
+\begin{table}[htp]
+\tiny
+\caption{Comparative performance for compensatory and non-compensatory ranking aware models, `Improve' indicates the improvements of non-compensatory versions relative to the original models.}
+\begin{center}
+\begin{tabular}{p{0.4cm}<{\centering}|p{1.2cm}<{\centering} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm}}
+\hline
+Dataset	& Method	& AUC	& Improve&	NDCG&	Improve&	MRR	&Improve\\\hline
+\multirow{6}{*}{\shortstack{Movie\\lens}} &	BT	& $0.6021$ 	& &	$0.5070$ 	&&	$0.7654$ 	&\\
+%\cline{2-8}
+	&BT-N	&$0.6434$ &	$6.86\%$	&$0.5425 $	&$7.02\%$	&$0.8440$ &	$10.27\%$	\\
+%	\cline{2-8}
+	&BPR&	$0.7002$ 	&&	$0.5443$ 	&&	$0.8478$ &\\
+%	\cline{2-8}
+	&BPR-N	&$0.7246$ 	&$3.48\%$	&$0.5508$ &	$1.20\%$	&$0.8623$ 	&$1.71\%$	\\
+%	\cline{2-8}
+	&FSBPR		&$0.5923$&	&$0.4990$ 	&&	$0.7484$&\\	
+%	\cline{2-8}
+	&FSBPR-N	&$0.6512$	&$9.94\%$	&	$0.5205$ 	&$4.26\%$	&$0.7954$ 	&$6.28\%$	\\
+%	\cline{2-8}
+	&LCR		&$0.6103$&	&$0.8278$ 	&&	$0.6793$&\\	
+%	\cline{2-8}
+	&LCR-N	&$0.6212$	&$1.79\%$	&	$0.8365$ 	&$1.05\%$	&$0.6862$ 	&$1.02\%$ \\
+
+	\hline
+\multirow{6}{*}{\shortstack{Film\\trust}}	&	BT	& $0.6317 $ 	& &	$0.5070$ 	&&	$0.7654$ 	&\\
+%\cline{2-8}
+	&BT-N	&$0.7269$ &	$15.07\%$	&$0.5312 $	&$4.79\%$	&$0.8190$ &	$7.00\%$	\\
+%	\cline{2-8}
+	&BPR&	$0.7825$ 	&&	$0.5147$ 	&&	$0.7825$ &\\
+%	\cline{2-8}
+	&BPR-N	&$0.6728$ 	&$-14.02\%$	&$0.5392$ &	$4.75\%$	&$0.8365$ 	&$6.91\%$	\\
+%	\cline{2-8}
+	&FSBPR		&$0.5970$&	&$0.4996$ 	&&	$0.7490$&\\	
+%	\cline{2-8}
+	&FSBPR-N	&$0.7165$	&$20.01\%$	&	$0.5205$ 	&$4.20\%$	&$0.7954$ 	&$6.19\%$	\\
+%	\cline{2-8}
+	&LCR		&$0.5207$&	&$0.9020$ 	&&	$0.7336$&\\	
+%	\cline{2-8}
+	&LCR-N	&$0.5262$	&$1.06\%$	&	$0.9056$ 	&$0.40\%$	&$0.7533$ 	&$2.69\%$ \\
+
+	\hline
+\multirow{6}{*}{\shortstack{Ciao\\DVD}}	&	BT	& $0.6136$ 	& &	$0.5203$ 	&&	$0.8008$ 	&\\
+%\cline{2-8}
+	&BT-N	&$0.7892$ &	$28.62\%$	&$0.5857 $	&$11.99\%$	&$0.9393$ &	$17.30\%$	\\
+%	\cline{2-8}
+	&BPR&	$0.6380$ 	&&	$0.4883$ 	&&	$0.7240$ &\\
+%	\cline{2-8}
+	&BPR-N	&$0.8982$ 	&$40.78\%$	&$0.5922$ &	$21.28\%$	&$0.9537$ 	&$31.71\%$	\\
+%	\cline{2-8}
+	&FSBPR		&$0.6003$&	&$0.5001$ 	&&	$0.7502$&\\	
+%	\cline{2-8}
+	&FSBPR-N	&$0.6589$	&$9.76\%$	&	$0.5637$ 	&$12.72\%$	&$0.8908$ 	&$18.73\%$	\\
+%	\cline{2-8}
+	&LCR		&$0.6931$&	&$0.9380$ 	&&	$0.8122$&\\	
+%	\cline{2-8}
+	&LCR-N	&$0.7001$	&$1.01\%$	&	$0.9513$ 	&$1.42\%$	&$0.8248$ 	&$1.55\%$ \\
+	\hline
+	\end{tabular}
+\end{center}
+\label{tab:ratingresult}
+\end{table}%
+
+
+Table 7: ranking -Tmall
+\begin{table}[htp]
+\tiny
+\caption{Comparative performance for compensatory and non-compensatory models on ranking implicit feedback, `Improve' indicates the improvements of non-compensatory versions relative to the original models.}
+\begin{center}
+\begin{tabular}{p{0.4cm}<{\centering}|p{1.2cm}<{\centering} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm}|p{0.5cm} p{0.6cm} |p{0.5cm} p{0.6cm}}
+\hline
+Dataset	& Method	& AUC	& Improve&	NDCG&	Improve&	MRR	&Improve &	MAP&	Improve&	Prec	&Improve\\\hline
+\multirow{6}{*}{\shortstack{Tmall-\\single}} &	BT	& $0.7253 $&  &$0.2814$& &$0.4890$&   &$0.4348$& 	& $0.2787$ 	&\\
+%\cline{2-8}
+	&BT-N	&$0.7308$ &	$0.76\%$	&$0.2853 $	&$1.36\%$	&$0.4973$ &	$1.70\%$	&$0.4408$ &	$1.38\%$	&$0.2810 $	&$0.81\%$\\
+%	\cline{2-8}
+	&BPR&	$0.7252$ 	&&	$0.2826$ 	&&	$0.4932$ & &$0.4359$& 	& $0.2789$ 	&\\
+%	\cline{2-8}
+	&BPR-N	&$0.7305$ 	&$0.73\%$	&$0.2854$ &	$0.99\%$	&$0.4977$ 	&$0.91\%$ &$0.4410$ &	$1.17\%$	&$0.2810 $	&$0.77\%$	\\
+%	\cline{2-8}
+	&FSBPR		&$0.7092$&	&$0.2732$ 	&&	$0.4717$& &$0.4163$& 	& $0.2734$ 	&\\	
+%	\cline{2-8}
+	&FSBPR-N	&$0.7130$	&$0.53\%$	&	$0.2747$ 	&$0.57\%$	&$0.4740$ 	&$0.48\%$ &$0.4193$ &	$0.72\%$	&$0.2747 $	&$0.48\%$	\\
+%	\cline{2-8}
+	&LCR		&$0.$&	&$0.$ 	&&	$0.$& &$0.$& 	& $0.$ 	&\\	
+%	\cline{2-8}
+	&LCR-N	&$0.$	&$\%$	&	$0.$ 	&$\%$	&$0.$ 	&$\%$ &$0.$ &	$\%$	&$0. $	&$\%$\\
+
+	\hline
+\multirow{6}{*}{\shortstack{Tmall-\\hybrid}}	&	BT	& $0.7931 $&  &$0.3056$& &$0.5458$&   &$0.5015$& 	& $0.2934$ 	&\\
+%\cline{2-8}
+	&BT-N	&$0.8249$ &	$4.01\%$	&$0.3305 $	&$8.15\%$	&$0.6063$ &	$11.09\%$	&$0.5592$ &	$11.50\%$	&$0.3044 $	&$3.75\%$\\
+%	\cline{2-8}
+	&BPR&	$0.8132$ 	&&	$0.3248$ 	&&	$0.5950$ & &$0.5463$& 	& $0.3006$ 	&\\
+%	\cline{2-8}
+	&BPR-N	&$0.8267$ 	&$1.66\%$	&$0.3324$ &	$2.33\%$	&$0.6112$ 	&$2.72\%$ &$0.5635$ &	$3.15\%$	&$0.3050 $	&$1.45\%$	\\
+%	\cline{2-8}
+	&FSBPR		&$0.7431$&	&$0.2770$ 	&&	$0.4817$& &$0.4398$& 	& $0.2768$ 	&\\	
+%	\cline{2-8}
+	&FSBPR-N	&$0.7624$	&$2.60\%$	&	$0.2865$ 	&$3.44\%$	&$0.5007$ 	&$3.95\%$ &$0.4597$ &	$4.53\%$	&$0.2831 $	&$2.24\%$	\\
+%	\cline{2-8}
+	&LCR		&$0.$&	&$0.$ 	&&	$0.$& &$0.$& 	& $0.$ 	&\\	
+%	\cline{2-8}
+	&LCR-N	&$0.$	&$\%$	&	$0.$ 	&$\%$	&$0.$ 	&$\%$ &$0.$ &	$\%$	&$0. $	&$\%$\\
+
+	\hline
+\multirow{6}{*}{\shortstack{Yooch\\oose}}	&BT	& $0.8732 $&  &$0.4742$& &$0.7156$&   &$0.6368$& 	& $0.4569$ 	&\\
+%\cline{2-8}
+	&BT-N	&$0.8966$ &	$2.67\%$	&$0.5166 $	&$8.94\%$	&$0.7882$ &	$10.14\%$	&$0.7112$ &	$11.69\%$	&$0.4786 $	&$4.76\%$\\
+%	\cline{2-8}
+	&BPR&	$0.8934$ 	&&	$0.5019$ 	&&	$0.7639$ & &$0.6821$& 	& $0.4711$ 	&\\
+%	\cline{2-8}
+	&BPR-N	&$0.9034$ 	&$1.12\%$	&$0.5149$ &	$2.59\%$	&$0.7854$ 	&$2.82\%$ &$0.7057$ &	$3.46\%$	&$0.4777 $	&$1.39\%$	\\
+%	\cline{2-8}
+	&FSBPR		&$0.8405$&	&$0.4379$ 	&&	$0.6541$& &$0.5685$& 	& $0.4374$ 	&\\	
+%	\cline{2-8}
+	&FSBPR-N	&$0.8839$	&$5.15\%$	&	$0.5445$ 	&$24.34\%$	&$0.7987$ 	&$22.11\%$ &$0.6825$ &	$20.06\%$	&$0.5362 $	&$22.59\%$	\\
+%	\cline{2-8}
+	&LCR		&$0.$&	&$0.$ 	&&	$0.$& &$0.$& 	& $0.$ 	&\\	
+%	\cline{2-8}
+	&LCR-N	&$0.$	&$\%$	&	$0.$ 	&$\%$	&$0.$ 	&$\%$ &$0.$ &	$\%$	&$0. $	&$\%$\\
+	\hline
+	\end{tabular}
+\end{center}
+\label{tab:ratingresult}
+\end{table}%
+
 
 \end{document}
